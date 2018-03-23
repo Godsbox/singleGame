@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/load_view_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/app_fragment_web"
+    >
+
+    <com.lzj.arch.view.MyWebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:progress="100"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/app_layerlist_progress_primary_transparent"
+        style="?android:attr/progressBarStyleHorizontal"
+        />
+</FrameLayout>

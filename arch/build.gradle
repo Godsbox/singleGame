@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion apk.compileSdkVersion
+    buildToolsVersion apk.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion apk.minSdkVersion
+        targetSdkVersion apk.targetSdkVersion
+        versionCode apk.versionCode
+        versionName apk.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile libs.appcompat
+    compile libs.design
+    compile libs.recyclerview
+    compile libs.gridlayout
+    compile libs.cardview
+    compile libs.analytics
+    compile libs.rxjava
+    compile libs.rxandroid
+    compile libs.rxbinding
+    compile libs.eventbus
+    compile libs.timber
+    compile libs.disklrucache
+    compile(libs.doorbell) {
+        exclude group: 'com.android.support'
+    }
+    compile libs.cpv
+    compile libs.okhttp
+    compile libs.gson
+    androidTestCompile(libs.espressoCore, {
+        exclude group: 'com.android.support'
+    })
+    implementation files('libs/tbs_sdk_thirdapp_v3.5.0.1004_43500_sharewithdownload_withoutGame_obfs_20170801_113025.jar')
+}

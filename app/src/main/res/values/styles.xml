@@ -1,0 +1,41 @@
+<resources>
+    <!-- 应用主题 -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:windowBackground">@color/window</item>
+        <item name="android:alertDialogStyle">@style/AlertDialog</item>
+        <item name="android:alertDialogTheme">@style/AlertDialog</item>
+        <item name="android:dialogTheme">@style/AppTheme.Dialog</item>
+        <item name="bottomSheetDialogTheme">@style/AppTheme.BottomSheetDialog</item>
+    </style>
+
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:selectableItemBackground">@drawable/app_selector_rect_white</item>
+    </style>
+
+    <!-- 默认主题 -->
+    <style name="AppTheme.Default" />
+
+    <!-- 黑色主题 -->
+    <style name="AppTheme.Black" />
+
+    <!-- 白色主题 -->
+    <style name="AppTheme.White">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <!-- 对话框主题 -->
+    <style name="AppTheme.Dialog" parent="@style/ThemeOverlay.AppCompat.Dialog">
+        <item name="colorAccent">@color/primary</item>
+    </style>
+
+    <!-- 底部对话框主题 -->
+    <style name="AppTheme.BottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="colorAccent">@color/primary</item>
+    </style>
+
+</resources>

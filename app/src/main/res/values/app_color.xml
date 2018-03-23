@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#3DC4CC</color>
+    <color name="primary_dark">#3DC4CC</color>
+    <color name="primary_little">#00c8d4</color>
+    <color name="primary_pressed">#B33DC4CC</color>
+    <color name="primary_20">#333DC4CC</color>
+    <color name="primary_disabled">#cccccc</color>
+
+    <color name="work_title">#666666</color>
+
+    <color name="tag_background">#ffeedc</color>
+
+    <color name="red_pressed">#B3F46060</color>
+    <color name="transition">#eaeaea</color>
+    <color name="navigation">#FAFAFA</color>
+    <color name="navigation_pressed">#eaeaea</color>
+    <color name="divider">#E6E6E6</color>
+    <color name="divider_dark">#cccccc</color>
+    <color name="placeholder">#F2F2F2</color>
+    <color name="translucent">#E0000000</color>
+    <color name="transparent_100">#00000000</color>
+    <color name="transparent_50_black">#8000</color>
+    <color name="skip">#BBBBBB</color>
+    <color name="skip_pressed">#B3BBBBBB</color>
+    <color name="purple">#835492</color>
+    <color name="purple_pressed">#B3835492</color>
+    <color name="title_bg">#66212121</color>
+    <color name="yellow">#ffff8d</color>
+    <color name="yellow_light">#fcfdde</color>
+    <color name="slight_yellow">#fffff5</color>
+    <color name="brown">#bf7f46</color>
+
+    <color name="white">#ffffff</color>
+    <color name="whites">#fff</color>
+    <color name="white_disabled">#9de1e5</color>
+    <color name="green">#57CF5A</color>
+    <color name="green_pressed">#B357CF5A</color>
+    <color name="orange">#ff984d</color>
+    <color name="orange_little">#ffd071</color>
+    <color name="orange_pressed">#B3ff984d</color>
+
+    <color name="little_gray">#faf9f4</color>
+    <color name="gray_attention">#ABABAB</color>
+    <color name="gray_pay_bg">#f7f7fc</color>
+    <color name="gray_attention_bg">#F0F5F6</color>
+    <color name="gray_line_vertical">#D3D3D3</color>
+    <color name="transition_gray">#26000000</color>
+    <color name="transition_black">#66000000</color>
+
+    <color name="yellow_transparent">#ad8140</color>
+    <color name="gray_transparent">#c2c5c6</color>
+
+    <color name="font_black_fans">#343333</color>
+    <color name="font_gray_vote">#797b80</color>
+
+    <color name="font_yellow_account">#D17E26</color>
+
+    <color name="gray_deep">#e4e7e9</color>
+    <color name="download_connecting">#f1f4f5</color>
+    <color name="black_sky_status">#040E1B</color>
+    <color name="black_account_status">#3D4E5D</color>
+    <color name="send_gift_btn">#0fd2e1</color>
+    <color name="gray">#F5F2F6</color>
+    <color name="font_gray">#BFBCBB</color>
+    <color name="yellow_deep">#fbb320</color>
+
+    <color name="stroke">#f0f0f5</color>
+    <color name="font_yellow_deep">#c88e5b</color>
+    <color name="font_yellow_gray">#c7bba4</color>
+
+    <color name="green_little">#e9f7f8</color>
+    <color name="gray_808080">#808080</color>
+
+    <color name="blue">#2196f3</color>
+    <color name="blue_deep">#6777a4</color>
+    <color name="blue_pressed">#B32196f3</color>
+    <color name="font_blue_account">#328BA6</color>
+    <color name="purple_little">#94b2ef</color>
+    <color name="exchange_bg">#3e4f60</color>
+    <color name="exchange_button">#4AF0FF</color>
+
+
+    <color name="little_sky_blue">#b1eefb</color>
+    <color name="enter_app_button">#5CAED5</color>
+    <color name="blue_transparent">#4d88be</color>
+
+    <color name="__picker_pager_bg">#CA000000</color>
+    <color name="__picker_selected_bg">#44000000</color>
+    <color name="__picker_black_40">#282828</color>
+    <color name="__picker_common_primary">#f3f3f3</color>
+
+    <color name="__picker_text_40">#282828</color>
+    <color name="__picker_text_80">#505050</color>
+    <color name="__picker_text_120">#787878</color>
+    <color name="__picker_item_photo_border_selected">#ff99cc00</color>
+    <color name="__picker_item_photo_border_n">#33ffffff</color>
+
+    <color name="honor_level_1_3">#49a4eb</color>
+    <color name="honor_level_4_6">#25c72d</color>
+    <color name="honor_level_7_9">#fb990c</color>
+    <color name="honor_level_10">#ff0000</color>
+
+    <color name="homepage_red">#B56C97</color>
+    <color name="homepage_blue">#389CE1</color>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_pressed="true"
+        android:color="@color/transparent_50_black"
+        android:drawable="@drawable/app_shape_ellipse_round_work_more"
+        />
+    <item
+        android:color="@color/black"
+        android:drawable="@drawable/app_shape_ellipse_round_black_stroke"
+        />
+</selector>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radius_round">3dp</dimen>
+    <dimen name="radius_rounds">4dp</dimen>
+    <dimen name="appbar_height">48dp</dimen>
+    <dimen name="app_item_height">56dp</dimen>
+    <dimen name="divider">1px</dimen>
+    <dimen name="divider_inverse">-1px</dimen>
+    <dimen name="column_item_margin_left">8dp</dimen>
+    <dimen name="card_view_margin_top">1dp</dimen>
+    <dimen name="item_divider">8dp</dimen>
+    <dimen name="item_vertical">9dp</dimen>
+    <dimen name="big_round">12dp</dimen>
+    <dimen name="item_horizontal">16dp</dimen>
+    <dimen name="game_reply_nickname_max_width">105dp</dimen>
+    <dimen name="mini_fling_velocity">50dp</dimen>
+    <dimen name="index_banner_height">200dp</dimen>
+    <dimen name="index_banner_bottom_height">156dp</dimen>
+
+    <dimen name="__picker_iwf_actionBarSize">48dip</dimen>
+    <dimen name="__picker_item_photo_size">80dip</dimen>
+    <dimen name="__picker_item_camera_size">80dip</dimen>
+    <dimen name="__picker_item_directory_height">80dp</dimen>
+
+    <item name="index_image_ratio" format="float" type="dimen">1.75</item>
+</resources>

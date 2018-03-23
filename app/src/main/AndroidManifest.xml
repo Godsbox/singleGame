@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lzj.shanyijiansan">
+
+    <!-- 普通权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 危险权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" tools:node="remove" />
+
+    <application
+        android:name="com.lzj.shanyijiansan.BaWei"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:allowBackup="true"
+        android:theme="@style/AppTheme.Default"
+        tools:replace="android:allowBackup"
+        >
+        <activity
+            android:name="com.lzj.shanyijiansan.MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.lzj.shanyi.action.SCHEME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="lzj3000_game"
+                    />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.lzj.shanyijiansan.play.PlayGameActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            >
+        </activity>
+
+        <activity
+            android:name="com.lzj.shanyijiansan.browser.BrowserActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            android:hardwareAccelerated="true"
+            >
+        </activity>
+    </application>
+
+</manifest>

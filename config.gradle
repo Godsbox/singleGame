@@ -1,0 +1,90 @@
+import java.text.SimpleDateFormat
+
+ext {
+    // 签名
+    Properties properties = new Properties()
+    File propertyFile = new File(rootDir.getAbsolutePath() + "/local.properties")
+    properties.load(propertyFile.newDataInputStream())
+    signing = [
+            keyAlias     : properties.getProperty("SIGNING_KEY_ALIAS"),
+            keyPassword  : properties.getProperty("SIGNING_KEY_PASSWORD"),
+            storeFile    : properties.getProperty("SIGNING_STORE_FILE"),
+            storePassword: properties.getProperty("SIGNING_STORE_PASSWORD")
+    ]
+
+    // 安装包
+    apk = [
+            appId            : 'com.lzj.shanyijiansan',
+            appName          : 'jiansan',
+            versionName      : '1.0.0',
+            prereleaseSuffix : 'dev',
+            versionCode      : 1,
+            minSdkVersion    : 15,
+            compileSdkVersion: 25,
+            targetSdkVersion : 22,
+            buildToolsVersion: "26.0.2"
+    ]
+
+    debugConfig = [
+            minifyEnabled: false,
+            umengEnabled : "false"
+    ]
+
+    memberConfig = [
+            minifyEnabled: true,
+            umengEnabled : "true"
+    ]
+
+    // 版本
+    versions = [
+            support   : "25.3.1",
+            stetho    : "1.4.2",
+            leakcanary: '1.5'
+    ]
+
+    libs = [
+            appcompat         : "com.android.support:appcompat-v7:${versions.support}",
+            design            : "com.android.support:design:${versions.support}",
+            recyclerview      : "com.android.support:recyclerview-v7:${versions.support}",
+            gridlayout        : "com.android.support:gridlayout-v7:${versions.support}",
+            palette           : "com.android.support:palette-v7:${versions.support}",
+            cardview          : "com.android.support:cardview-v7:${versions.support}",
+
+            analytics         : 'com.umeng.analytics:analytics:latest.integration',
+            eventbus          : 'de.greenrobot:eventbus:2.4.0',
+            flexbox           : 'com.google.android:flexbox:0.2.6',
+            gson              : 'com.google.code.gson:gson:2.8.0',
+            glide             : 'com.github.bumptech.glide:glide:3.7.0',
+            rxjava            : 'io.reactivex.rxjava2:rxjava:2.0.6',
+            rxandroid         : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            rxbinding         : 'com.jakewharton.rxbinding2:rxbinding:2.0.0',
+            imagecropview     : 'com.naver.android.helloyako:imagecropview:1.2.1',
+            disklrucache      : 'com.jakewharton:disklrucache:2.0.2',
+            timber            : 'com.jakewharton.timber:timber:4.5.1',
+            doorbell          : 'com.wujilin.doorbell:doorbell:0.6.2',
+            leakcanary        : "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}",
+            leakcanaryStub    : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",
+            cpv               : "com.github.rahatarmanahmed:circularprogressview:2.5.0",
+            okhttp            : "com.squareup.okhttp3:okhttp:3.6.0",
+            circleimageview   : "de.hdodenhof:circleimageview:2.1.0",
+            roundedimageview  : "com.makeramen:roundedimageview:2.3.0",
+            viewpagerindicator: 'com.github.JakeWharton:ViewPagerIndicator:2.4.1',
+            rollviewpager     : "com.jude:rollviewpager:1.4.6",
+            stetho            : "com.facebook.stetho:stetho:${versions.stetho}",
+            stethoOkHttp3     : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
+            nineold           : "com.nineoldandroids:library:2.4.0",
+
+            espressoCore      : "com.android.support.test.espresso:espresso-core:2.2.2"
+    ]
+    // 类库
+
+    // 计算版本名称后缀
+    def versionNameSuffix = ''
+    if (!apk.prereleaseSuffix.isEmpty()) {
+        versionNameSuffix = '-' + apk.prereleaseSuffix
+        if ('dev' == apk.prereleaseSuffix) {
+            versionNameSuffix = '-' + new SimpleDateFormat("MMdd").format(new Date())
+        }
+    }
+    apk.versionNameSuffix = versionNameSuffix
+}

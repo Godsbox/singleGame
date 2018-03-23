@@ -1,0 +1,127 @@
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.application'
+
+def buildTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())
+
+android {
+    compileSdkVersion apk.compileSdkVersion
+    buildToolsVersion apk.buildToolsVersion
+    defaultConfig {
+        applicationId apk.appId
+        minSdkVersion apk.minSdkVersion
+        targetSdkVersion apk.targetSdkVersion
+        versionCode apk.versionCode
+        versionName apk.versionName
+        multiDexEnabled true
+        versionNameSuffix apk.versionNameSuffix
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                UMENG_CHANNEL: "internal"
+        ]
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        resConfigs 'zh', 'en'
+        buildConfigField "String", "APP_VERSION", "\"$apk.versionName\""
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+        flavorDimensions "versionCode"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias signing.keyAlias
+            keyPassword signing.keyPassword
+            storeFile file(signing.storeFile)
+            storePassword signing.storePassword
+        }
+    }
+
+    buildTypes {
+        // 发布版
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+
+        }
+
+        // 成员版
+        member {
+            minifyEnabled memberConfig.minifyEnabled
+            zipAlignEnabled memberConfig.minifyEnabled
+            shrinkResources memberConfig.minifyEnabled
+            signingConfig signingConfigs.release
+
+            //关键代码，release， debug为library中已有buildType
+            matchingFallbacks = ['release', 'debug']
+        }
+
+        // 开发版
+        debug {
+            minifyEnabled debugConfig.minifyEnabled
+            zipAlignEnabled debugConfig.minifyEnabled
+            shrinkResources debugConfig.minifyEnabled
+            signingConfig signingConfigs.release
+
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+
+    // 重命名 APK 文件
+    def apkDir = projectDir.parent + "/apk"
+    applicationVariants.all { variant ->
+
+        def versionName = variant.versionName
+        def versionCode = variant.versionCode
+        def appName = apk.appName
+        def buildType = variant.buildType.name
+        def outputDir = new File(apkDir, versionName + "_" + versionCode + "/${buildType}")
+        def flavorName = variant.flavorName
+
+        variant.outputs.each { output ->
+            def fileName = "${appName}_${versionName}.${flavorName}.apk"
+            output.outputFileName  = fileName
+
+            if (variant.buildType.name != "debug") {
+                variant.getPackageApplication().outputDirectory = outputDir
+            }
+        }
+
+        // 拷贝 mappings.txt 文件
+        if (variant.buildType.isMinifyEnabled()) {
+            variant.assemble.doLast {
+                copy {
+                    from variant.mappingFile
+                    into outputDir
+                    rename { String fileName ->
+                        "mapping-${flavorName}-${buildTime}.txt"
+                    }
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':arch')
+    // LeakCanary
+}
