@@ -19,4 +19,10 @@ public class BrowserPresenter
     public void workFinish() {
         getView().toggleQuitConfirm(true);
     }
+
+    @Override
+    public void lookMoreWorks() {
+        getView().showDialog();
+    }
+
 }

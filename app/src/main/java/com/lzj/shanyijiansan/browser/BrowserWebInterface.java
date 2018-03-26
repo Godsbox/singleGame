@@ -143,6 +143,14 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
     }
 
     /**
+     * 弹窗跳闪艺。
+     */
+    @JavascriptInterface
+    public void moreWorks() {
+        getPresenter().lookMoreWorks();
+    }
+
+    /**
      * 复制。
      */
     @JavascriptInterface

@@ -28,6 +28,11 @@ public interface BrowserContract {
          */
         void toggleQuitConfirm(boolean show);
 
+        /**
+         * 选择窗口
+         *
+         */
+        void showDialog();
     }
 
     /**
@@ -39,5 +44,10 @@ public interface BrowserContract {
          * 作品播放结束
          */
         void workFinish();
+
+        /**
+         * 查看更多作品 到闪艺
+         */
+        void lookMoreWorks();
     }
 }

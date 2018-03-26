@@ -3,11 +3,13 @@
  */
 package com.lzj.shanyijiansan.browser;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -202,6 +204,32 @@ public class BrowserFragment
             @Override
             public void run() {
                 ToastUtils.showShort(R.string.offline_error);
+            }
+        });
+    }
+
+    @Override
+    public void showDialog() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                new AlertDialog.Builder(getContext(), R.style.AlertDialog)
+                        .setMessage(R.string.look_more_work)
+                        .setPositiveButton(R.string.go_look, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(ProcessUtils.isAppInstalled(AppConstant.SHANYI_PACKAGE)){
+                                    ProcessUtils.startOtherApp(getActivity(), AppConstant.SHANYI_PACKAGE);
+                                    return;
+                                }
+                                Intent intent = new Intent();
+                                intent.setAction(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse(BaWei.getInstance().getDownloadShanyiUrl()));
+                                startActivity(Intent.createChooser(intent, "请选择浏览器"));
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, null)
+                        .show();
             }
         });
     }
