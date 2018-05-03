@@ -37,6 +37,11 @@ public final class AppConstant {
     public static final String AUTHOR_NAME = "作者: 剑三";
 
     /**
+     * 类型
+     */
+    public static final String WORK_TYPE = "类型: 现代";
+
+    /**
      * 作品字数
      */
     public static final String WORK_COUNT = "字数: 6.2万";

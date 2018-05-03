@@ -34,7 +34,7 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
 
     private TextView open, more;
 
-    private TextView name, count;
+    private TextView name, count, type;
 
     {
         setFullscreen(true);
@@ -63,9 +63,11 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
         open = (TextView) findViewById(R.id.open);
         more = (TextView) findViewById(R.id.more);
 
+        type = (TextView) findViewById(R.id.type);
         name = (TextView) findViewById(R.id.name);
         count = (TextView) findViewById(R.id.work_count);
 
+        type.setText(AppConstant.WORK_TYPE);
         name.setText(AppConstant.AUTHOR_NAME);
         count.setText(AppConstant.WORK_COUNT);
 

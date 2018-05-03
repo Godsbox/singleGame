@@ -8,9 +8,9 @@
     <string name="cancel">取消</string>
     <string name="positive">确定</string>
     <string name="i_know">我知道了</string>
-    <string name="exit_game_tip">你是否要退出作品，退出前记得存档保留记录哦~</string>
+    <string name="exit_game_tip">你是否要退出小说，退出前记得存档保留记录哦~</string>
 
-    <string name="offline_error">打开作品失败 json资源丢失~</string>
+    <string name="offline_error">打开小说失败 json资源丢失~</string>
     <string name="offline_error_nojson">json资源丢失~</string>
 
     <string name="quit_play_game_confirm_message">退出前记得存档保留记录哦~</string>
@@ -19,11 +19,11 @@
     <string name="quit_play_game_confirm_message_save">听风看云飘，快来使用云存档~</string>
     <string name="quit_play_game_guide">右滑呼出快捷功能哦~</string>
 
-    <string name="play_again">再玩一遍</string>
-    <string name="enter_work">进入游戏</string>
-    <string name="more_work">更多作品</string>
+    <string name="play_again">再看一遍</string>
+    <string name="enter_work">打开小说</string>
+    <string name="more_work">更多小说</string>
 
-    <string name="work_finish_tip">体验更多好玩的文字作品\n请下载【闪艺】APP</string>
-    <string name="look_more_work">查看更多作品请前往闪艺APP~</string>
+    <string name="work_finish_tip">阅读更多好玩的互动文字小说\n请下载【闪艺】APP</string>
+    <string name="look_more_work">查看更多小说请前往闪艺APP~</string>
     <string name="go_look">前往查看</string>
 </resources>
