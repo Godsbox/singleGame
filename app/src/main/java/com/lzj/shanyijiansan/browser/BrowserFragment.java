@@ -191,7 +191,7 @@ public class BrowserFragment
             }
             url = url.replace("file:///android_asset/","");
             url = url.replace("/android_asset/","");
-            input = getContext().getAssets().open(url);
+            input = getContext().getAssets().open(url + "shanyi");
         } catch (IOException e) {
             return null;
         }

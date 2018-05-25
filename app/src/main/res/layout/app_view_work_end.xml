@@ -82,7 +82,7 @@
         <TextView
             android:id="@+id/more"
             android:textSize="17sp"
-            android:text="更多作品"
+            android:text="@string/more_work"
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
