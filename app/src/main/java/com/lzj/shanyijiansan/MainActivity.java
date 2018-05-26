@@ -49,7 +49,7 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
             if (intent != null) {
                 String action = intent.getAction();
                 if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && Intent.ACTION_MAIN.equals(action)) {
-                    //finish();
+                    finish();
                     return;
                 }
             }
