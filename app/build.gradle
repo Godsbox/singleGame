@@ -91,7 +91,13 @@ android {
         def flavorName = variant.flavorName
 
         variant.outputs.each { output ->
-            def fileName = "${appName}_${versionName}.${flavorName}.apk"
+            def fileName
+            if(fileName == null || fileName.length() == 0){
+                fileName = "${appName}_${versionName}.apk"
+            } else {
+                fileName = "${appName}_${versionName}.${flavorName}.apk"
+            }
+
             output.outputFileName  = fileName
 
             if (variant.buildType.name != "debug") {
