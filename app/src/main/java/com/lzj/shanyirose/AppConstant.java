@@ -19,12 +19,12 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "85693";
+    public static final String GAME_ID = "94148";
 
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "5ce723eb-adcc-407f-bb3b-8b5aab574916";
+    public static final String GAME_UUID = "7DD9FA33-7209-60D5-45B6-55ED64B3C520";
 
     /**
      * 作品名字
