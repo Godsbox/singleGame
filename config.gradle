@@ -14,8 +14,8 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyijiansan',
-            appName          : 'jiansan',
+            appId            : 'com.lzj.shanyirose',
+            appName          : 'rose',
             versionName      : '1.0.0',
             prereleaseSuffix : 'dev',
             versionCode      : 1,

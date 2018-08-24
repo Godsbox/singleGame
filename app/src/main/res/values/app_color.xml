@@ -32,6 +32,7 @@
     <color name="brown">#bf7f46</color>
 
     <color name="white">#ffffff</color>
+    <color name="white_80">#ccffffff</color>
     <color name="whites">#fff</color>
     <color name="white_disabled">#9de1e5</color>
     <color name="green">#57CF5A</color>

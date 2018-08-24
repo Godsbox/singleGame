@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.lzj.shanyijiansan">
+    package="com.lzj.shanyirose">
 
     <!-- 普通权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,7 +21,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" tools:node="remove" />
 
     <application
-        android:name="com.lzj.shanyijiansan.BaWei"
+        android:name="com.lzj.shanyirose.BaWei"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -30,7 +30,7 @@
         tools:replace="android:allowBackup"
         >
         <activity
-            android:name="com.lzj.shanyijiansan.MainActivity"
+            android:name="com.lzj.shanyirose.MainActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             android:configChanges="keyboardHidden|orientation|screenSize">
@@ -52,14 +52,14 @@
         </activity>
 
         <activity
-            android:name="com.lzj.shanyijiansan.play.PlayGameActivity"
+            android:name="com.lzj.shanyirose.play.PlayGameActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             >
         </activity>
 
         <activity
-            android:name="com.lzj.shanyijiansan.browser.BrowserActivity"
+            android:name="com.lzj.shanyirose.browser.BrowserActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:launchMode="singleTask"

@@ -6,6 +6,7 @@
 
     <ImageView
         android:id="@+id/work_start_bg"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -17,17 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/title"
-        android:src="@mipmap/work_title"
-        android:layout_below="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/work_info"
-        android:layout_centerHorizontal="true"/>
-
     <LinearLayout
         android:id="@+id/work_info"
+        android:visibility="invisible"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:gravity="center_horizontal"
@@ -72,7 +65,7 @@
             android:paddingRight="20dp"
             android:layout_height="32dp"
             android:layout_width="wrap_content"
-            android:textColor="@drawable/app_selector_ellipse_round_more_work"
+            android:textColor="@color/orange"
             android:background="@drawable/app_selector_ellipse_round_more_work"/>
 
     </LinearLayout>
