@@ -17,7 +17,7 @@ ext {
             appId            : 'com.lzj.shanyirose',
             appName          : 'rose',
             versionName      : '1.0.0',
-            prereleaseSuffix : 'dev',
+            prereleaseSuffix : '',
             versionCode      : 1,
             minSdkVersion    : 15,
             compileSdkVersion: 25,
