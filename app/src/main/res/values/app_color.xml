@@ -39,6 +39,7 @@
     <color name="green_pressed">#B357CF5A</color>
     <color name="orange">#ff984d</color>
     <color name="orange_little">#ffd071</color>
+    <color name="orange_light">#eb7d55</color>
     <color name="orange_pressed">#B3ff984d</color>
 
     <color name="little_gray">#faf9f4</color>

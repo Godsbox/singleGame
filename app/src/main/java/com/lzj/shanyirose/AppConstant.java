@@ -29,12 +29,12 @@ public final class AppConstant {
     /**
      * 作品名字
      */
-    public static final String GAME_NAME = "重生之玫瑰豪门";
+    public static final String GAME_NAME = "逆袭之剩女重生";
 
     /**
      * 作者
      */
-    public static final String AUTHOR_NAME = "作者: ";
+    public static final String AUTHOR_NAME = "作者: 不动参商";
 
     /**
      * 类型
@@ -44,7 +44,7 @@ public final class AppConstant {
     /**
      * 作品字数
      */
-    public static final String WORK_COUNT = "字数: 19.9万";
+    public static final String WORK_COUNT = "字数: 51.4万";
 
     /**
      * 资源路径

@@ -65,7 +65,7 @@
             android:paddingRight="20dp"
             android:layout_height="32dp"
             android:layout_width="wrap_content"
-            android:textColor="@color/orange"
+            android:textColor="@color/orange_light"
             android:background="@drawable/app_selector_ellipse_round_more_work"/>
 
     </LinearLayout>
