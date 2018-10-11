@@ -1,0 +1,302 @@
+<manifest package="com.idreamsky.ad.lib" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="25"
+        tools:overrideLibrary="com.apponboard.sdk,com.shenqi.video,com.ksc.ad.sdk"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+
+    <application android:allowBackup="false" android:supportsRtl="true">
+       
+        <!-- MobGi start -->
+        <!-- MobgiVideo start -->
+        <service android:name="com.mobgi.adutil.download.ApkDownloadService"/>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize|screenLayout" android:launchMode="singleTask" android:name="com.mobgi.adx.AdxVideoActivity" android:screenOrientation="landscape"/>
+        <receiver android:name="com.mobgi.adutil.download.CompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mobgi.adutil.apk.ApkInstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+            <!-- <meta-data -->
+            <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+            <!-- android:resource="@xml/file_paths" />-->
+        </provider>
+        <!-- MobgiVideo end -->
+        <!-- MobgiInterstitial start -->
+        <!-- Adx start -->
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize" android:name="com.mobgi.adx.AdxInterstitialActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <!-- Adx end -->
+        <provider android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <!-- MobgiInterstitial end -->
+        <!-- MobgiVideoNative start -->
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize" android:name="com.mobgi.platform.videonative.VideoNativeActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <!-- MobgiVideoNative end -->
+        <!-- MobgiInterstitialNative start -->
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize" android:name="com.mobgi.platform.interstitialnative.InterstitialNativeActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <!-- MobgiInterstitialNative end -->
+        <!-- checker start -->
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.mobgi.ads.checker.PermissionActivity" android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+        <service android:enabled="true" android:exported="false" android:name="com.mobgi.ads.checker.view.LifecycleManager$AppExitListenerService"/>
+        <!-- checker end -->
+        <!-- MobGi end -->
+       
+        <!-- AdMob国内版 -->
+        <activity
+            android:name="com.google.android.gms.ads.internal.directappinstall.DirectAppInstallActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent"/>
+
+        <receiver
+            android:name="com.google.android.gms.ads.internal.directappinstall.DirectAppInstallReceiver$DownloadCompleteReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.ads.internal.directappinstall.DirectAppInstallReceiver$InstallCompleteReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_CHANGED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- AdMob国内版 -->
+
+        <!-- AdView start-->
+        <activity android:name="com.kyview.AdviewWebView"/>
+        <activity android:name="com.kyview.AdActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.kuaiyou.video.vast.activity.VASTAdActivity"/>
+        <service android:name="com.kyview.DownloadService"/>
+        <!--AdView end -->
+       
+        <!-- yumi start -->
+        <receiver android:name="com.yumi.android.sdk.ads.self.module.receiver.ADReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.yumi.android.sdk.ads.service.YumiAdsEventService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.yumi.android.sdk.ads.self.activity.YumiFullScreenActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <!-- Debugging Activity -->
+        <activity android:name="com.yumi.android.sdk.ads.mediation.activity.MediationTestActivity"/>
+        <!-- yumi end -->
+        
+        <!-- Inmobi start -->
+        <!--Required Activity for rendering ads in the embedded browser-->
+        <!-- android:resizeableActivity="false" 如果编译版本大于等于24需要设置该属性  -->
+        <activity android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout" android:hardwareAccelerated="true" android:name="com.inmobi.rendering.InMobiAdActivity" android:theme="@android:style/Theme.NoTitleBar" tools:ignore="UnusedAttribute"/>
+        <!-- download apk and install -->
+        <receiver android:enabled="true" android:exported="true" android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver" tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.inmobi.ads.ApkDownloader$ApkDownloadService"/>
+        <!--<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>-->
+        <!-- Inmobi end -->
+        
+        <!-- Centrixlink start -->
+        <!-- 广告 Activity -->
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize" android:name="com.centrixlink.SDK.FullScreenADActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <!-- Centrixlink end -->
+        
+         <!-- Vungle start -->
+        <activity
+            android:name="com.vungle.warren.ui.VungleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.vungle.warren.ui.VungleWebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.vungle.warren.ui.VungleFlexViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- Vungle end -->
+        
+        <!-- UniplaySDK start -->
+        <!-- UniplaySDK嵌入代码开始 -->
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.uniplay.adsdk.AdActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.uniplay.adsdk.InterstitialAdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:name="com.uniplay.adsdk.PackageReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.uniplay.adsdk.DownloadService"/>
+        <!-- UniplaySDK嵌入代码结束 -->
+        <!-- UniplaySDK End -->
+        
+        <!-- Oneway Start -->
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:hardwareAccelerated="true" android:name="mobi.oneway.sdk.AdShowActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <!-- Oneway End -->
+        
+         <!-- Mobvista start -->
+        <activity
+            android:name="com.mintegral.msdk.activity.MTGCommonActivity"
+            android:configChanges="keyboard|orientation"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <receiver android:name="com.mintegral.msdk.click.AppReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.mintegral.msdk.shell.MTGService">
+            <intent-filter>
+                <action android:name="com.mintegral.msdk.download.action" />
+            </intent-filter>
+        </service>
+        <!-- 插页 -->
+        <activity
+            android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 视频 -->
+        <activity
+            android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- Mobvista end -->
+        
+        <!-- Lamjoy视频 start -->
+        <!-- 注意视频和插页是两个不同的SDK包 -->
+        <activity
+            android:name="com.lam.activity.InterstitialVideoActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name="com.lam.activity.StimulateVideoActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.lam.activity.DialogActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <provider
+            android:name="com.lam.listener.FileProvider"
+            android:authorities="${applicationId}_lm.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" />
+
+        <service
+            android:name="com.lam.service.ManService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.adroid.SERVICE" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="LM_KEY"
+            android:value="xxxxxx" />
+
+        <meta-data
+            android:name="LM_CHANNEL"
+            android:value="xxxxx" />
+
+        <!-- Lamjoy视频 end -->
+        
+        <!-- 蓝莓 插页 start -->
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.tencent.analytics.api.sky.ActivityApiC" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.tencent.analytics.api.sky.ActivityApiF" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.tencent.analytics.api.sky.ActivityApiW" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.tencent.analytics.api.sky.ActivityStyleA" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.tencent.analytics.api.sky.ActivityStyleB" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.tencent.analytics.api.sky.ActivityStyleC" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.tencent.analytics.api.sky.ActivityStyleD" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.sky.SkyAppActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.tencent.analytics.sdk.Adx" android:priority="2147483647"/>
+        <service android:name="com.tencent.analytics.sdk.Adm" android:priority="2147483647"/>
+        <!-- 包含的GDT start -->
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <!-- 包含的GDT end -->
+        <!-- 蓝莓 插页 end -->
+        
+        <!-- Kingsoft start -->
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ksc.ad.sdk.ui.AdProxyActivity" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ksc.ad.sdk.ui.AdPermissionProxyActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <service android:name="com.ksc.ad.sdk.service.AdProxyService"/>
+        <provider android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.ksc.ad.sdk.util.KsyunFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <!-- Kingsoft end -->
+        
+        <!-- TouTiao start -->
+        <provider android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="${applicationId}.union_adsdk_tt" android:exported="false" android:name="com.bytedance.sdk.openadsdk.service.TTDownloadProvider"/>
+        <activity android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity" android:screenOrientation="landscape"/>
+        <activity android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.bytedance.sdk.openadsdk.service.TTDownloadService"/>
+        <service android:name="com.bytedance.sdk.openadsdk.service.TTDownloadHandlerService"/>
+        <!-- TouTiao end-->
+        
+    </application>
+</manifest>

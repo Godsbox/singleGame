@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\project\\singleGame\\adlibs\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\4399-4399\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.0.0.aar\\080eef8271b44e37fe9d524c2fad8e6b\\res\\color\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "D:\\project\\singleGame\\adlibs\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\4399-4399\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.0.0.aar\\080eef8271b44e37fe9d524c2fad8e6b\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "D:\\project\\singleGame\\adlibs\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_tint.xml",
+        "source": "C:\\Users\\4399-4399\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.0.0.aar\\080eef8271b44e37fe9d524c2fad8e6b\\res\\color\\common_google_signin_btn_tint.xml"
+    }
+]

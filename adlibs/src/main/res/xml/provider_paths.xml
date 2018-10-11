@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <files-path
+        name="files"
+        path="." />
+    <external-path
+        name="external_files"
+        path="." />
+    <external-path
+        name="external_storage_root"
+        path="." />
+    <external-files-path
+        name="external_files_path"
+        path="." />
+    <external-path
+        name="files_root"
+        path="Android/data/你的app包名/" />
+
+    <!-- GDT -->
+    <external-path
+        name="gdt_sdk_download_path"
+        path="GDTDOWNLOAD" />
+    <!-- GDT -->
+
+    <!-- Uniplay -->
+    <root-path
+        name="download"
+        path="" />
+    <!-- Uniplay -->
+
+    <!-- Kingsoft -->
+    <external-path
+        name="files_root"
+        path="Android/data/com.ads/" />
+    <external-path
+        name="external_storage_root"
+        path="cache/apk/." />
+    <!-- Kingsoft -->
+
+    <!-- Toutiao -->
+    <external-files-path
+        name="external_files_path"
+        path="Download" />
+    <!-- Toutiao -->
+
+    <!-- Vivo baidu -->
+    <external-files-path
+        name="bdpath"
+        path="bddownload/" />
+    <external-path
+        name="bdpathsd"
+        path="bddownload/" />
+    <!-- Vivo baidu -->
+
+    <!-- OneWay -->
+    <root-path
+        name="root"
+        path="" />
+    <files-path
+        name="files"
+        path="." />
+    <external-path
+        name="sdcard"
+        path="." />
+    <cache-path
+        name="cache"
+        path="." />
+    <external-files-path
+        name="exFiles"
+        path="." />
+    <external-cache-path
+        name="exCache"
+        path="." />
+    <!-- OneWay -->
+</paths>
