@@ -32,14 +32,13 @@ dependencies {
     compile libs.rxjava
     compile libs.rxandroid
     compile libs.rxbinding
-    compile libs.eventbus
+    provided libs.eventbus
     compile libs.timber
     compile libs.disklrucache
     compile(libs.doorbell) {
         exclude group: 'com.android.support'
     }
     compile libs.cpv
-    compile libs.okhttp
     compile libs.gson
     androidTestCompile(libs.espressoCore, {
         exclude group: 'com.android.support'

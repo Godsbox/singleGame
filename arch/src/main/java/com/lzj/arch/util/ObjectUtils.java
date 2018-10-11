@@ -5,7 +5,6 @@ package com.lzj.arch.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.lzj.arch.network.ApiClient;
 
 /**
  * 关于对象操作方法的工具类。
@@ -38,7 +37,7 @@ public final class ObjectUtils {
      * @param json JSON 数据
      */
     public static <T> void writeObjectDiskCache(String key, T json) {
-        ApiClient.writeDiskCache(key,objectToJsonStr(json));
+        //ApiClient.writeDiskCache(key,objectToJsonStr(json));
     }
 
     /**

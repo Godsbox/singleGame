@@ -13,7 +13,6 @@ import android.util.Log;
 
 import com.lzj.arch.file.KeyValueCaches;
 import com.lzj.arch.file.SharedPreferencesImpl;
-import com.lzj.arch.network.ApiClient;
 import com.lzj.arch.util.ContextUtils;
 import com.tencent.smtt.sdk.QbSdk;
 
@@ -24,7 +23,6 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.OkHttpClient;
 
 import static com.lzj.arch.util.OsUtils.asOfMarshmallow;
 import static android.Manifest.permission.READ_PHONE_STATE;
@@ -147,15 +145,6 @@ public class BaWei extends MultiDexApplication {
     }
 
     /**
-     * 初始化 API 客户端。
-     */
-    protected void initApiClient() {
-        OkHttpClient client = new OkHttpClient.Builder()
-                .build();
-        ApiClient.getInstance().setOkHttpClient(client);
-    }
-
-    /**
      * 获取应用单例。
      *
      * @return 应用单例
@@ -216,19 +205,4 @@ public class BaWei extends MultiDexApplication {
         this.DOWNLOAD_SHANYI_URL = url;
     }
 
-    private void getAppDownloadUrl(){
-        //String urls = BuildConfig.BUILD_TYPE.equals("debug") ? textUrl : url;
-        /*Api api = new ApiBuilder()
-                .api(url)
-                .build();
-        Observable.create(new AbstractRepository.OnCallApiSubscribe<DownloadUrlResult>(api, DownloadUrlResult.class))
-                .subscribeOn(io())
-                .observeOn(mainThread()).subscribe(new ObserverAdapter<DownloadUrlResult>(){
-            @Override
-            public void onNext(DownloadUrlResult s) {
-                if(s.getUrl().contains("http:"))
-                    BaWei.getInstance().setUrl(s.getUrl());
-            }
-        });*/
-    }
 }
