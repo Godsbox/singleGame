@@ -22,6 +22,16 @@ public final class AppConstant {
     public static final String GAME_ID = "94188";
 
     /**
+     * 广告的 appkey
+     */
+    public static final String AD_APP_KEY = "C6F6B7A92E8278DBFAB6";
+
+    /**
+     * 广告位id
+     */
+    public static final String BLOCK_ID = "2018101114570955844956";
+
+    /**
      * 第一个json
      */
     public static final String GAME_UUID = "9543B928-6858-52C0-9A6B-1787113ED2C2";

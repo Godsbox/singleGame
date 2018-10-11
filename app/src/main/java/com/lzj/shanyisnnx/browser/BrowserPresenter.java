@@ -25,4 +25,8 @@ public class BrowserPresenter
         getView().showDialog();
     }
 
+    @Override
+    public void playAdVideo() {
+        getView().playAdsVideo();
+    }
 }

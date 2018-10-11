@@ -33,6 +33,11 @@ public interface BrowserContract {
          *
          */
         void showDialog();
+
+        /**
+         * 播放广告
+         */
+        void playAdsVideo();
     }
 
     /**
@@ -49,5 +54,10 @@ public interface BrowserContract {
          * 查看更多作品 到闪艺
          */
         void lookMoreWorks();
+
+        /**
+         * 播放广告
+         */
+        void playAdVideo();
     }
 }

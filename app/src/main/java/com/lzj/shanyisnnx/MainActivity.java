@@ -14,6 +14,11 @@ import com.lzj.arch.app.PassiveActivity;
 import com.lzj.arch.core.Contract;
 import com.lzj.arch.util.BitmapUtils;
 import com.lzj.arch.util.ProcessUtils;
+import com.lzj.arch.util.ToastUtils;
+import com.mobgi.IMobgiAdsListener;
+import com.mobgi.MobgiAds;
+import com.mobgi.MobgiAdsError;
+import com.mobgi.MobgiVideoAd;
 import com.wujilin.doorbell.Doorbell;
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.shanyisnnx.browser.BrowserActivity;
@@ -100,7 +105,6 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
             doStartPlayGame();
         }
         if(view.getId() == R.id.more){
-
             if(ProcessUtils.isAppInstalled(AppConstant.SHANYI_PACKAGE)){
                 ProcessUtils.startOtherApp(this, AppConstant.SHANYI_PACKAGE);
                 return;

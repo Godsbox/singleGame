@@ -14,6 +14,8 @@ import android.util.Log;
 import com.lzj.arch.file.KeyValueCaches;
 import com.lzj.arch.file.SharedPreferencesImpl;
 import com.lzj.arch.util.ContextUtils;
+import com.mobgi.MobgiAds;
+import com.mobgi.common.utils.LogUtil;
 import com.tencent.smtt.sdk.QbSdk;
 
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ import static com.lzj.arch.util.OsUtils.asOfMarshmallow;
 import static android.Manifest.permission.READ_PHONE_STATE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static com.lzj.shanyisnnx.AppConstant.AD_APP_KEY;
 import static com.lzj.shanyisnnx.BuildConfig.BUILD_TYPE;
 
 /**
@@ -88,6 +91,8 @@ public class BaWei extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         ContextUtils.setAppContext(this);
+        LogUtil.setDebug(true);
+        MobgiAds.init(this, AD_APP_KEY);
         //initApiClient();
         QbSdk.initX5Environment(this, new QbSdk.PreInitCallback() {
             @Override

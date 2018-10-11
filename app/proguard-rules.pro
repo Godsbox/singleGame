@@ -323,3 +323,361 @@ public static final ** CREATOR;
 
  -keepattributes EnclosingMethod
  -dontwarn InnerClasses
+
+ #广告的混淆
+ -keep class com.apponboard.** { *; }
+
+ -keep class com.qq.e.** {
+     public protected *;
+ }
+ -keep class android.support.v4.app.NotificationCompat**{
+     public *;
+ }
+
+ -dontwarn
+ -keep public class com.kyview.** {*;}
+ -keepclassmembers class * {public *;}
+ -keep public class com.kuaiyou.**.** {*;}
+ -optimizationpasses 5
+ -dontusemixedcaseclassnames
+ -dontskipnonpubliclibraryclasses
+ -dontpreverify
+ -verbose
+
+ -keepattributes SourceFile,LineNumberTable
+ -keep class com.inmobi.** { *; }
+ -dontwarn com.inmobi.**
+ -keep public class com.google.android.gms.**
+ -dontwarn com.google.android.gms.**
+ -dontwarn com.squareup.picasso.**
+ -keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{
+ public *;
+ }
+ -keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{
+ public *;
+ }
+ # skip the Picasso library classes
+ -keep class com.squareup.picasso.** {*;}
+ -dontwarn com.squareup.picasso.**
+ -dontwarn com.squareup.okhttp.**
+ # skip Moat classes
+ -keep class com.moat.** {*;}
+ -dontwarn com.moat.**
+ # skip AVID classes
+ -keep class com.integralads.avid.library.* {*;}
+
+ #Centrixlink
+ -dontwarn com.centrixlink.**
+ -keep public class com.centrixlink.**  { *; }
+
+ #Mobvista
+ -keepattributes Signature
+ -keepattributes *Annotation*
+ -keep class com.mintegral.** {*; }
+ -keep interface com.mintegral.** {*; }
+ -keep class android.support.v4.** { *; }
+ -dontwarn com.mintegral.**
+ -keep class **.R$* { public static final int mintegral*; }
+ -keep class com.alphab.** {*; }
+ -keep interface com.alphab.** {*; }
+
+ #Kingsoft
+ -keep class com.ksc.ad.sdk.**{ *;}
+ -dontwarn com.ksc.ad.sdk.**
+
+ -keep class com.bytedance.sdk.openadsdk.** { *; }
+ -keep class com.androidquery.callback.** {*;}
+
+ #Mobgi
+ -keep public class com.mobgi.MobgiAds {*;}
+ -keep public class com.mobgi.MobgiAds$FinishState {*;}
+ -keep public class com.mobgi.MobgiAdsError {*;}
+ -keep public class com.mobgi.MobgiAdsConfig {*;}
+ -keep public class com.mobgi.MobgiInterstitialAd {*;}
+ -keep public class com.mobgi.MobgiVideoAd {*;}
+ -keep public class com.mobgi.MobgiNativeAd {*;}
+ -keep public class com.mobgi.MobgiSplashAd {*;}
+ -keep public interface com.mobgi.IMobgiAdsListener {*;}
+ -keep public interface com.mobgi.IMobgiAdsLenovoListener {*;}
+ -keep public interface com.mobgi.listener.SplashAdListener {*;}
+ -keep public class com.mobgi.adutil.parser.NativeAdBeanPro {*;}
+
+ #AdMod国内版
+ -keep class * implements com.google.android.gms.ads.mediation.MediationAdapter {
+   public *;
+ }
+ -keep class * implements com.google.ads.mediation.MediationAdapter {
+   public *;
+ }
+ -keep class * implements com.google.android.gms.ads.mediation.customevent.CustomEvent {
+   public *;
+ }
+ -keep class * implements com.google.ads.mediation.customevent.CustomEvent {
+   public *;
+ }
+ -keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+     public static final *** NULL;
+ }
+
+ -keep class com.google.android.gms.common.internal.ReflectedParcelable
+ -keepnames class * implements com.google.android.gms.common.internal.ReflectedParcelable
+ -keepclassmembers class * implements android.os.Parcelable {
+   public static final *** CREATOR;
+ }
+ -keep @interface android.support.annotation.Keep
+ -keep @android.support.annotation.Keep class *
+ -keepclasseswithmembers class * {
+  @android.support.annotation.Keep <fields>;
+ }
+ -keepclasseswithmembers class * {
+   @android.support.annotation.Keep <methods>;
+ }
+ -keep @interface com.google.android.gms.common.annotation.KeepName
+ -keepnames @com.google.android.gms.common.annotation.KeepName class *
+ -keepclassmembernames class * {
+   @com.google.android.gms.common.annotation.KeepName *;
+ }
+ -keep @interface com.google.android.gms.common.util.DynamiteApi
+ -keep @com.google.android.gms.common.util.DynamiteApi public class * {
+   public <fields>;
+   public <methods>;
+ }
+ -dontwarn android.security.NetworkSecurityPolicy
+ -dontwarn android.app.Notification
+ -dontwarn sun.misc.Unsafe
+ -dontwarn libcore.io.Memory
+ # AdMob国内版 -end
+
+ #蓝莓
+ #视频
+ -libraryjars libs/LamVideo.jar
+ -keep class com.lam.** { *; }
+ #插屏
+ -keepattributes Exceptions,InnerClasses,Signature,*Annotation*
+ -keepnames class * implements java.io.Serializable
+ -keep public class com.androidquery.**{*;}
+ -keep public class com.tencent.analytics.sdk.** {*;}
+
+ #OneWay
+ ############################################
+ ##           OneWaySDK 混淆配置             ##
+ ############################################
+
+ -keepattributes *Annotation*
+ -keep enum mobi.oneway.sdk.* {*;}
+ -keep class mobi.oneway.sdk.** {*;}
+
+
+ ############################################
+ ##           OkDownload 混淆配置            ##
+ ############################################
+
+
+-dontwarn com.liulishuo.okdownload.**
+-keep class com.liulishuo.okdownload.core.breakpoint.BreakpointStoreOnSQLite {
+    public com.liulishuo.okdownload.core.breakpoint.DownloadStore createRemitSelf();
+    public com.liulishuo.okdownload.core.breakpoint.BreakpointStoreOnSQLite(android.content.Context);
+}
+# okdownload:okhttp
+-keepnames class com.liulishuo.okdownload.core.connection.DownloadOk
+
+
+############################################
+##             OkHttp 混淆配置              ##
+############################################
+
+# okhttp https://github.com/square/okhttp/#proguard
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+
+#穿山甲(今日头条)
+###Toutiao v1.9.3.2
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+-keep class com.androidquery.callback.** {*;}
+-keep class com.bytedance.sdk.openadsdk.service.TTDownloadProvider
+
+#Unity
+###Unity v2.1.0
+# Keep filenames and line numbers for stack traces
+-keepattributes SourceFile,LineNumberTable
+# Keep JavascriptInterface for WebView bridge
+-keepattributes JavascriptInterface
+# Sometimes keepattributes is not enough to keep annotations
+-keep class android.webkit.JavascriptInterface {
+*;
+}
+# Keep all classes in Unity Ads package
+-keep class com.unity3d.ads.** {
+*;
+}
+
+#Vungle
+###Vungle v6.3.18
+# Vungle
+-keep class com.vungle.warren.** { *; }
+-dontwarn com.vungle.warren.error.VungleError$ErrorCode
+# Moat SDK
+-keep class com.moat.** { *; }
+-dontwarn com.moat.**
+# Okio
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+# Retrofit
+-dontwarn okio.**
+-dontwarn retrofit2.Platform$Java8
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.examples.android.model.** { *; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+# Google Android Advertising ID
+-keep class com.google.android.gms.internal.** { *; }
+-dontwarn com.google.android.gms.ads.identifier.**
+
+#Uniplay
+-dontwarn com.uniplay.**
+-keep class com.uniplay.** { *; }
+
+#联想
+-keep class com.lestore.ad.sdk.**{
+<fields>;
+<methods>;
+}
+-keep class com.chance.**{
+<fields>;
+<methods>;
+}
+-keep class com.lenovo.**{
+<fields>;
+<methods>;
+}
+-keep class de.greenrobot.** {
+<fields>;
+<methods>;
+}
+-keep class com.qq.**{
+<fields>;
+<methods>;
+}
+-dontwarn com.qq.**
+-dontwarn com.lenovo.**
+-dontwarn com.lestore.ad.sdk.**
+-dontwarn com.chance.**
+
+#Mimo
+-keep class com.xiaomi.ad.**{*;}
+-keep class com.miui.zeus.**{*;}
+
+#OPPO
+#oppo sdk
+-keep class com.oppo.** {
+public protected *;
+}
+-keep class okio.**{ *; }
+-keep class com.squareup.wire.**{ *; }
+-keep public class * extends com.squareup.wire.**{ *; }
+# Keep methods with Wire annotations (e.g. @ProtoField)
+-keepclassmembers class ** {
+@com.squareup.wire.ProtoField public *;
+@com.squareup.wire.ProtoEnum public *;
+}
+-keep public class com.cdo.oaps.base.**{ *; }
+-keepattributes *Annotation*
+-keepattributes *JavascriptInterface*
+#support-v4
+-keep class android.support.v4.** { *; }
+
+#VIVO
+-keeppattributes SourcesFile, LineNumberTable
+#GDT
+-keep class com.qq.e.**{
+public protected *;
+}
+-keep class android.support.v4.app.NotificationCompat**{
+public *;
+}
+
+
+#Baidu
+-keep class com.baidu.mobads.*.**{ *;}
+
+#vivoSDK
+-keep class com.vivo.*.**{ *; }
+
+-downwarn com.androidquery.auth.**
+
+#九游
+###九游
+-keepattributes SourceFile,LineNumberTable
+-keepattributes Signature
+-keepattributes *Annotation*
+
+## common
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+
+-keep class android.app.**{*;}
+-dontwarn  android.app.**
+
+-keep class android.support.v7.media.*{public *;}
+-keep class android.support.v4.** { *; }
+-dontwarn android.support.**
+
+## network libs
+-keep class android.net.http.** { *; }
+-dontwarn android.net.**
+-dontnote android.net.http.*
+
+-keep class org.apache.http.** { *; }
+-dontwarn org.apache.**
+-dontnote org.apache.commons.codec.**
+-dontnote org.apache.http.**
+
+# Keep native methods
+-keepclasseswithmembers class * {
+    native <methods>;
+}
+
+### utdid
+-keep class com.ta.utdid2.**{*;}
+
+-keep class com.ut.device.**{*;}
+-dontwarn com.ta.utdid2.**
+-dontwarn com.ut.device.**
+
+# Keep ngad-sdk classes
+-keep class cn.sirius.nga.** {*; }
+-dontwarn cn.sirius.nga.**
+
+-keep class cn.ninegame.library.** {*; }
+-dontwarn cn.ninegame.library.**
+
+-keep class com.qq.e.** {*; }
+-dontwarn com.qq.e.**
+
+-keep class com.taobao.** {*; }
+-dontwarn com.taobao.**
+-keep class android.taobao.** {*; }
+-dontwarn android.taobao.**
+
+-keep class com.UCMobile.Apollo.**{*;}
+
+-dontwarn com.mobvista.**
+-keep class com.mobvista.** {*; }
+-keep interface com.mobvista.** {*; }
+-keep class **.R$* { public static final int mobvista*; }
+-keep class com.alphab.** {*; }
+-keep interface com.alphab.** {*; }
+
+-dontwarn com.lm.**
+-keep class com.lm.** { *; }
+
+-dontwarn com.uniplay.**
+-keep class com.uniplay.** { *; }

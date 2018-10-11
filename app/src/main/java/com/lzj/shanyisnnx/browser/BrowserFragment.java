@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
+import com.lzj.arch.rx.ObserverAdapter;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
@@ -25,15 +26,26 @@ import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
 import com.lzj.shanyisnnx.AppConstant;
 import com.lzj.shanyisnnx.BaWei;
+import com.lzj.shanyisnnx.MainActivity;
 import com.lzj.shanyisnnx.R;
+import com.mobgi.IMobgiAdsListener;
+import com.mobgi.MobgiAds;
+import com.mobgi.MobgiAdsError;
+import com.mobgi.MobgiVideoAd;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import java.io.File;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
+
 import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.wujilin.doorbell.Doorbell;
+
+import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
+import rx.functions.Action1;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
@@ -77,11 +89,23 @@ public class BrowserFragment
      */
     private TextView again, more;
 
+    /**
+     * 开始广告
+     */
+    private boolean startAds = true;
+
     @Override
     public void onCreate(@Nullable Bundle state) {
         super.onCreate(state);
         int layoutId = getArgument(EXTRA_LAYOUT_ID);
         getConfig().setLayoutResource(layoutId);
+
+        Observable.timer(20000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+            @Override
+            public void onNext(Long aLong) {
+                initAds();
+            }
+        });
     }
 
     @Override
@@ -283,4 +307,66 @@ public class BrowserFragment
             startActivity(Intent.createChooser(intent, "请选择浏览器"));
         }
     }
+
+    private MobgiVideoAd mobgiVideoAd;
+
+    private String AdBlockId = AppConstant.BLOCK_ID;
+
+    private void initAds(){
+        IMobgiAdsListener listener = new IMobgiAdsListener() {
+            @Override
+            public void onAdsReady(String blockId) {
+                if(startAds){
+                    mobgiVideoAd.show(getActivity(), AdBlockId);
+                    startAds = false;
+                }
+            }
+
+            @Override
+            public void onAdsPresent(String blockId) {
+            }
+
+            @Override
+            public void onAdsFailure(String blockId, MobgiAdsError error, String message) {
+                Log.d("wsy","========= onAdsFailure =======");
+                callback("playVideo","false");
+            }
+
+            @Override
+            public void onAdsDismissed(String blockId, MobgiAds.FinishState result) {
+                // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
+                Log.d("wsy","========= onAdsDismissed =======" + result);
+                if(result == MobgiAds.FinishState.COMPLETED){
+                    callback("playVideo","true");
+                } else {
+                    callback("playVideo","false");
+                }
+            }
+
+            @Override
+            public void onAdsClick(String blockId) {
+
+            }
+        };
+        if(mobgiVideoAd == null){
+            mobgiVideoAd = new MobgiVideoAd(getActivity(), listener);
+        }
+    }
+
+    @Override
+    public void playAdsVideo() {
+        startAds = true;
+        if(mobgiVideoAd == null){
+            initAds();
+            return;
+        }
+        boolean cache = mobgiVideoAd.isReady(AdBlockId);
+        if(cache){
+            mobgiVideoAd.show(getActivity(), AdBlockId);
+            startAds = false;
+        } else {
+            ToastUtils.showShort("正在加载广告中，请稍后....");
+        }
+    }
+
 }

@@ -8,8 +8,8 @@ import java.io.File;
 import com.lzj.arch.util.ClipboardUtils;
 import com.lzj.arch.util.DeviceUtils;
 import com.lzj.arch.util.FileUtils;
-import com.lzj.shanyisnnx.AppConstant;
 import com.lzj.arch.app.web.WebInterface;
+import com.lzj.shanyisnnx.AppConstant;
 import com.lzj.shanyisnnx.BuildConfig;
 
 import android.webkit.JavascriptInterface;
@@ -23,6 +23,26 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
 
     {
         setName("app");
+    }
+
+    /**
+     * 本地游戏数据缓存。
+     *
+     * @param key   键值
+     * @param value 存档数据
+     */
+    @JavascriptInterface
+    public boolean saveGameValue(String key, String value) {
+        return FileUtils.saveFileData(AppConstant.GAME_DIE,key,value);
+    }
+
+    /**
+     * 读取本地游戏数据缓存。
+     * @param key 键值
+     */
+    @JavascriptInterface
+    public String readGameValue(String key) {
+        return FileUtils.getFileData(AppConstant.GAME_DIE,key);
     }
 
     /**
@@ -90,6 +110,14 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
     @JavascriptInterface
     public String getV() {
         return "1.0.0";
+    }
+
+    /**
+     * 获取服务器接口版本号。
+     */
+    @JavascriptInterface
+    public void playAdVideo() {
+        getPresenter().playAdVideo();
     }
 
     /**

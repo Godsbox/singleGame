@@ -26,6 +26,11 @@ android {
             abiFilters "armeabi", "armeabi-v7a", "x86"
         }
         flavorDimensions "versionCode"
+
+        packagingOptions {
+            //解决编译时com.android.builder.merge.DuplicateRelativeFileException: More than one file was found with OS independent path 'META-INF/rxjava.properties'这个错误
+            exclude 'META-INF/rxjava.properties'
+        }
     }
 
     signingConfigs {
@@ -123,6 +128,7 @@ android {
 repositories {
     flatDir {
         dirs 'libs'
+        dirs '../adlibs/libs'
     }
 }
 
@@ -130,4 +136,5 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':arch')
     // LeakCanary
+    implementation project(':adlibs')
 }
