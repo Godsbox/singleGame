@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
+import com.lzj.arch.network.NetworkManager;
 import com.lzj.arch.rx.ObserverAdapter;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
@@ -100,10 +101,12 @@ public class BrowserFragment
         int layoutId = getArgument(EXTRA_LAYOUT_ID);
         getConfig().setLayoutResource(layoutId);
 
-        Observable.timer(20000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+        Observable.timer(30000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
             @Override
             public void onNext(Long aLong) {
-                initAds();
+                if(NetworkManager.isWifi()){
+                    initAds();
+                }
             }
         });
     }
@@ -329,7 +332,7 @@ public class BrowserFragment
             @Override
             public void onAdsFailure(String blockId, MobgiAdsError error, String message) {
                 Log.d("wsy","========= onAdsFailure =======");
-                callback("playVideo","false");
+                //callback("playVideo","false");
             }
 
             @Override
@@ -337,9 +340,9 @@ public class BrowserFragment
                 // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
                 Log.d("wsy","========= onAdsDismissed =======" + result);
                 if(result == MobgiAds.FinishState.COMPLETED){
-                    callback("playVideo","true");
+                    //callback("playVideo","true");
                 } else {
-                    callback("playVideo","false");
+                    //callback("playVideo","false");
                 }
             }
 
@@ -349,6 +352,9 @@ public class BrowserFragment
             }
         };
         if(mobgiVideoAd == null){
+            if(!NetworkManager.isConnected()){
+                ToastUtils.showShort(R.string.http_code_no_network);
+            }
             mobgiVideoAd = new MobgiVideoAd(getActivity(), listener);
         }
     }
