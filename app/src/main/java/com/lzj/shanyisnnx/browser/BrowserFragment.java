@@ -332,7 +332,7 @@ public class BrowserFragment
             @Override
             public void onAdsFailure(String blockId, MobgiAdsError error, String message) {
                 Log.d("wsy","========= onAdsFailure =======");
-                //callback("playVideo","false");
+                callBackAdFailed();
             }
 
             @Override
@@ -340,9 +340,9 @@ public class BrowserFragment
                 // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
                 Log.d("wsy","========= onAdsDismissed =======" + result);
                 if(result == MobgiAds.FinishState.COMPLETED){
-                    //callback("playVideo","true");
+                    callbackSucceed();
                 } else {
-                    //callback("playVideo","false");
+                    callBackAdFailed();
                 }
             }
 
@@ -357,6 +357,14 @@ public class BrowserFragment
             }
             mobgiVideoAd = new MobgiVideoAd(getActivity(), listener);
         }
+    }
+
+    private void callbackSucceed(){
+        callback("playadBack",1);
+    }
+
+    private void callBackAdFailed(){
+        callback("playadBack",0);
     }
 
     @Override

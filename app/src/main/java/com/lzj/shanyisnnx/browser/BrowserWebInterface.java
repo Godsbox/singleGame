@@ -12,6 +12,7 @@ import com.lzj.arch.app.web.WebInterface;
 import com.lzj.shanyisnnx.AppConstant;
 import com.lzj.shanyisnnx.BuildConfig;
 
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 
 /**
@@ -33,6 +34,7 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
      */
     @JavascriptInterface
     public boolean saveGameValue(String key, String value) {
+        Log.d("wsy","缓存数据到手机本地~~~~~~");
         return FileUtils.saveFileData(AppConstant.GAME_DIE,key,value);
     }
 
@@ -42,6 +44,7 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
      */
     @JavascriptInterface
     public String readGameValue(String key) {
+        Log.d("wsy","读取缓存的数据~~~~~~");
         return FileUtils.getFileData(AppConstant.GAME_DIE,key);
     }
 
@@ -117,6 +120,7 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
      */
     @JavascriptInterface
     public void playAdVideo() {
+        Log.d("wsy","开始播放广告~~~~~~");
         getPresenter().playAdVideo();
     }
 
