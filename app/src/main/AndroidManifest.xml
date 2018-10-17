@@ -29,6 +29,10 @@
         android:theme="@style/AppTheme.Default"
         tools:replace="android:allowBackup"
         >
+
+        <meta-data
+        android:name="MG_CHANNEL_ID"
+        android:value="CURRENT00000"/>
         <activity
             android:name="com.lzj.shanyisnnx.MainActivity"
             android:exported="true"

@@ -450,7 +450,8 @@ public static final ** CREATOR;
 
  #蓝莓
  #视频
- -libraryjars libs/LamVideo.jar
+
+ -dontwarn com.lam.**
  -keep class com.lam.** { *; }
  #插屏
  -keepattributes Exceptions,InnerClasses,Signature,*Annotation*
@@ -593,8 +594,6 @@ public protected *;
 #support-v4
 -keep class android.support.v4.** { *; }
 
-#VIVO
--keeppattributes SourcesFile, LineNumberTable
 #GDT
 -keep class com.qq.e.**{
 public protected *;
@@ -610,7 +609,6 @@ public *;
 #vivoSDK
 -keep class com.vivo.*.**{ *; }
 
--downwarn com.androidquery.auth.**
 
 #九游
 ###九游
@@ -681,3 +679,4 @@ public *;
 
 -dontwarn com.uniplay.**
 -keep class com.uniplay.** { *; }
+-ignorewarnings

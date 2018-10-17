@@ -188,6 +188,16 @@ public class WebFragment<P extends Presenter>
     }
 
     @Override
+    public void callback(final String callback, final String param) {
+        webView.post(new Runnable() {
+            @Override
+            public void run() {
+                webView.loadUrl("javascript:" + callback + "(" + param + ")");
+            }
+        });
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         webView.onResume();
@@ -225,6 +235,9 @@ public class WebFragment<P extends Presenter>
      * @return true：覆盖；false：未覆盖。
      */
     protected boolean shouldOverrideUrlLoading(WebView view, String url) {
+        if(url.contains("lzj3000://")){
+            return true;
+        }
         return false;
     }
 

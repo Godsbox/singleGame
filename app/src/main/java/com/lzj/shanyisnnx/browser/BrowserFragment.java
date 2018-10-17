@@ -93,7 +93,7 @@ public class BrowserFragment
     /**
      * 开始广告
      */
-    private boolean startAds = true;
+    private boolean startAds = false;
 
     @Override
     public void onCreate(@Nullable Bundle state) {
@@ -331,14 +331,12 @@ public class BrowserFragment
 
             @Override
             public void onAdsFailure(String blockId, MobgiAdsError error, String message) {
-                Log.d("wsy","========= onAdsFailure =======");
                 callBackAdFailed();
             }
 
             @Override
             public void onAdsDismissed(String blockId, MobgiAds.FinishState result) {
                 // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
-                Log.d("wsy","========= onAdsDismissed =======" + result);
                 if(result == MobgiAds.FinishState.COMPLETED){
                     callbackSucceed();
                 } else {
@@ -360,11 +358,13 @@ public class BrowserFragment
     }
 
     private void callbackSucceed(){
-        callback("playadBack",1);
+        Log.d("wsy","返回播放器参数~~~~");
+        callback("playadBack","1");
     }
 
     private void callBackAdFailed(){
-        callback("playadBack",0);
+        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
+        callback("playadBack","0");
     }
 
     @Override
@@ -379,7 +379,11 @@ public class BrowserFragment
             mobgiVideoAd.show(getActivity(), AdBlockId);
             startAds = false;
         } else {
-            ToastUtils.showShort("正在加载广告中，请稍后....");
+            if(!NetworkManager.isConnected()){
+                ToastUtils.showShort(R.string.http_code_no_network);
+            } else {
+                ToastUtils.showShort("正在加载广告中，请稍后....");
+            }
         }
     }
 

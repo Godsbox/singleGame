@@ -33,9 +33,9 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
      * @param value 存档数据
      */
     @JavascriptInterface
-    public boolean saveGameValue(String key, String value) {
+    public void saveGameValue(String key, String value) {
         Log.d("wsy","缓存数据到手机本地~~~~~~");
-        return FileUtils.saveFileData(AppConstant.GAME_DIE,key,value);
+        FileUtils.saveFileData(AppConstant.GAME_DIE,key,value);
     }
 
     /**
@@ -120,7 +120,6 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
      */
     @JavascriptInterface
     public void playAdVideo() {
-        Log.d("wsy","开始播放广告~~~~~~");
         getPresenter().playAdVideo();
     }
 

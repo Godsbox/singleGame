@@ -101,7 +101,7 @@ public class BaWei extends MultiDexApplication {
 
             @Override
             public void onViewInitFinished(boolean b) {
-                Log.d("wsy","初始化成功了没有啊 == "+b);
+                //Log.d("wsy","初始化成功了没有啊 == "+b);
             }
         }); // 初始化x5WebView内核
 

@@ -45,6 +45,14 @@ public interface WebContract {
         void callback(String callback, Object param);
 
         /**
+         * 回调前端接口。
+         *
+         * @param callback 接口名称
+         * @param param 参数
+         */
+        void callback(String callback, String param);
+
+        /**
          * 设置加载进度条显隐藏。
          *
          * @param visible true：显示；false：隐藏。
