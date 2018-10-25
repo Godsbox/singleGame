@@ -1,4 +1,4 @@
-package com.lzj.shanyisnnx;
+package com.lzj.shanyigdscfz;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,14 +14,9 @@ import com.lzj.arch.app.PassiveActivity;
 import com.lzj.arch.core.Contract;
 import com.lzj.arch.util.BitmapUtils;
 import com.lzj.arch.util.ProcessUtils;
-import com.lzj.arch.util.ToastUtils;
-import com.mobgi.IMobgiAdsListener;
-import com.mobgi.MobgiAds;
-import com.mobgi.MobgiAdsError;
-import com.mobgi.MobgiVideoAd;
 import com.wujilin.doorbell.Doorbell;
 import com.lzj.arch.app.web.WebConstant;
-import com.lzj.shanyisnnx.browser.BrowserActivity;
+import com.lzj.shanyigdscfz.browser.BrowserActivity;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

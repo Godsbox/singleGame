@@ -1,4 +1,4 @@
-package com.lzj.shanyisnnx.browser;
+package com.lzj.shanyigdscfz.browser;
 
 import com.lzj.arch.app.web.WebModel;
 

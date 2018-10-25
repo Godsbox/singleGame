@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyisnnx;
+package com.lzj.shanyigdscfz;
 
 import android.os.Build;
 import android.os.Environment;
 
-import static com.lzj.shanyisnnx.BuildConfig.APP_VERSION;
+import static com.lzj.shanyigdscfz.BuildConfig.APP_VERSION;
 
 /**
  * 应用全局常量类。
@@ -19,7 +19,7 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "95302";
+    public static final String GAME_ID = "95387";
 
     /**
      * 广告的 appkey
@@ -34,27 +34,32 @@ public final class AppConstant {
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "16BEA110-1693-7772-EBB3-7E2A5A885F8B";
+    public static final String GAME_UUID = "7993481C-D7D8-DE97-0727-87CD63F8916A";
 
     /**
      * 作品名字
      */
-    public static final String GAME_NAME = "逆袭之剩女重生";
+    public static final String GAME_NAME = "宫斗生存法则";
 
     /**
      * 作者
      */
-    public static final String AUTHOR_NAME = "作者: 不动参商";
+    public static final String AUTHOR_NAME = "作者: 椰籽树";
 
     /**
      * 类型
      */
-    public static final String WORK_TYPE = "类型: 现代";
+    public static final String WORK_TYPE = "类型: 古风、宫斗、生存、言情";
 
     /**
      * 作品字数
      */
-    public static final String WORK_COUNT = "字数: 51.4万";
+    public static final String WORK_COUNT = "字数: 1.8W";
+
+    /**
+     * 是否是竖屏 0横屏  1竖屏
+     */
+    public static final int vertical = 1;
 
     /**
      * 资源路径
@@ -67,7 +72,7 @@ public final class AppConstant {
     public static final String GAME_PLAYURL = FILE_DIR_HEAD + "index.html?" +
             "uuid=" + GAME_UUID +
             "&client=android&gid="+ GAME_ID +
-            "&type=0&v=1.0.0&app_version=1.5.0&offline=1";
+            "&type=0&v=1.0.0&app_version=1.5.0&offline=1&vertical=" + vertical;
 
     /**
      * 本地存储路径

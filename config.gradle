@@ -14,11 +14,11 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyisnnx',
-            appName          : 'snnx',
-            versionName      : '2.0.0',
+            appId            : 'com.lzj.shanyigdscfz',
+            appName          : 'gdscfz',
+            versionName      : '1.0.0',
             prereleaseSuffix : '',
-            versionCode      : 2,
+            versionCode      : 1,
             minSdkVersion    : 15,
             compileSdkVersion: 25,
             targetSdkVersion : 22,

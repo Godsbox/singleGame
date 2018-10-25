@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyisnnx.browser;
+package com.lzj.shanyigdscfz.browser;
 
 import java.io.File;
 
@@ -9,8 +9,8 @@ import com.lzj.arch.util.ClipboardUtils;
 import com.lzj.arch.util.DeviceUtils;
 import com.lzj.arch.util.FileUtils;
 import com.lzj.arch.app.web.WebInterface;
-import com.lzj.shanyisnnx.AppConstant;
-import com.lzj.shanyisnnx.BuildConfig;
+import com.lzj.shanyigdscfz.AppConstant;
+import com.lzj.shanyigdscfz.BuildConfig;
 
 import android.util.Log;
 import android.webkit.JavascriptInterface;

@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyisnnx;
+package com.lzj.shanyigdscfz;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.ArraySet;
-import android.util.Log;
 
 import com.lzj.arch.file.KeyValueCaches;
 import com.lzj.arch.file.SharedPreferencesImpl;
@@ -30,8 +29,8 @@ import static com.lzj.arch.util.OsUtils.asOfMarshmallow;
 import static android.Manifest.permission.READ_PHONE_STATE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static com.lzj.shanyisnnx.AppConstant.AD_APP_KEY;
-import static com.lzj.shanyisnnx.BuildConfig.BUILD_TYPE;
+import static com.lzj.shanyigdscfz.AppConstant.AD_APP_KEY;
+import static com.lzj.shanyigdscfz.BuildConfig.BUILD_TYPE;
 
 /**
  * 单独游戏应用。
