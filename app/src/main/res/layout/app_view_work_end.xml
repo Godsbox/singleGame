@@ -44,8 +44,8 @@
             android:id="@+id/again"
             android:textSize="16sp"
             android:gravity="right"
-            android:layout_height="39dp"
-            android:layout_width="120dp"
+            android:layout_height="38dp"
+            android:layout_width="118dp"
             android:src="@drawable/app_selector_ellipse_round_again_open_work"/>
 
         <View
@@ -54,8 +54,8 @@
 
         <ImageView
             android:id="@+id/more"
-            android:layout_height="39dp"
-            android:layout_width="120dp"
+            android:layout_height="38dp"
+            android:layout_width="118dp"
             android:src="@drawable/app_selector_ellipse_round_more_work"/>
 
     </LinearLayout>

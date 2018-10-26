@@ -34,7 +34,6 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
      */
     @JavascriptInterface
     public void saveGameValue(String key, String value) {
-        Log.d("wsy","缓存数据到手机本地~~~~~~key="+key+";  == value:"+value);
         FileUtils.saveFileData(AppConstant.GAME_DIE,key,value);
     }
 
@@ -45,7 +44,6 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
     @JavascriptInterface
     public String readGameValue(String key) {
         String back = FileUtils.getFileData(AppConstant.GAME_DIE,key);
-        Log.d("wsy","读取缓存的数据~~~~~~"+back);
         return back;
     }
 
