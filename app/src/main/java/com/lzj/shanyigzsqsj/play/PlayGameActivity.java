@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyigdscfz.play;
+package com.lzj.shanyigzsqsj.play;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
@@ -21,9 +21,9 @@ import com.lzj.arch.bus.BusManager;
 import com.lzj.arch.util.DisplayUtils;
 import com.lzj.arch.util.ViewUtils;
 import com.lzj.arch.widget.OnSwipeListener;
-import com.lzj.shanyigdscfz.BaWei;
-import com.lzj.shanyigdscfz.R;
-import com.lzj.shanyigdscfz.browser.BrowserFragment;
+import com.lzj.shanyigzsqsj.BaWei;
+import com.lzj.shanyigzsqsj.R;
+import com.lzj.shanyigzsqsj.browser.BrowserFragment;
 
 import java.util.Random;
 

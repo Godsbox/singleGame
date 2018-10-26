@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyigdscfz.browser;
+package com.lzj.shanyigzsqsj.browser;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,7 +15,6 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
@@ -27,9 +26,9 @@ import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
-import com.lzj.shanyigdscfz.AppConstant;
-import com.lzj.shanyigdscfz.BaWei;
-import com.lzj.shanyigdscfz.R;
+import com.lzj.shanyigzsqsj.AppConstant;
+import com.lzj.shanyigzsqsj.BaWei;
+import com.lzj.shanyigzsqsj.R;
 import com.mobgi.IMobgiAdsListener;
 import com.mobgi.MobgiAds;
 import com.mobgi.MobgiAdsError;
@@ -50,12 +49,12 @@ import io.reactivex.schedulers.Schedulers;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
-import static com.lzj.shanyigdscfz.AppConstant.GAME_DIR_PRE;
-import static com.lzj.shanyigdscfz.AppConstant.GAME_ID;
-import static com.lzj.shanyigdscfz.AppConstant.GAME_UUID;
-import static com.lzj.shanyigdscfz.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
-import static com.lzj.shanyigdscfz.AppConstant.OFFLINE_SHOULDINTER_URL;
-import static com.lzj.shanyigdscfz.AppConstant.getUserAgent;
+import static com.lzj.shanyigzsqsj.AppConstant.GAME_DIR_PRE;
+import static com.lzj.shanyigzsqsj.AppConstant.GAME_ID;
+import static com.lzj.shanyigzsqsj.AppConstant.GAME_UUID;
+import static com.lzj.shanyigzsqsj.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
+import static com.lzj.shanyigzsqsj.AppConstant.OFFLINE_SHOULDINTER_URL;
+import static com.lzj.shanyigzsqsj.AppConstant.getUserAgent;
 
 /**
  * 浏览器界面

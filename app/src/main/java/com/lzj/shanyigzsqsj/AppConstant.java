@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyigdscfz;
+package com.lzj.shanyigzsqsj;
 
 import android.os.Build;
 import android.os.Environment;
 
-import static com.lzj.shanyigdscfz.BuildConfig.APP_VERSION;
+import static com.lzj.shanyigzsqsj.BuildConfig.APP_VERSION;
 
 /**
  * 应用全局常量类。
@@ -19,7 +19,7 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "95396";
+    public static final String GAME_ID = "95386";
 
     /**
      * 广告的 appkey
@@ -39,7 +39,7 @@ public final class AppConstant {
     /**
      * 作品名字
      */
-    public static final String GAME_NAME = "宫斗生存法则";
+    public static final String GAME_NAME = "竹鼠求生记";
 
     /**
      * 作者
