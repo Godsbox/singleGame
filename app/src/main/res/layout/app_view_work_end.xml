@@ -2,10 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/work_bg"
-    android:background="@mipmap/work_end_bg">
+    android:id="@+id/work_bg">
 
     <ImageView
+        android:id="@+id/work_end_bg"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:visibility="gone"
         android:layout_marginTop="18dp"
         android:layout_marginLeft="25dp"
         android:src="@mipmap/shanyi_logo"
@@ -25,42 +31,32 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:gravity="center"
+        android:paddingTop="60dp"
         android:orientation="horizontal"
-        android:layout_marginBottom="45dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_below="@+id/work_info"
+        android:layout_centerInParent="true">
 
-        <TextView
+        <ImageView
             android:id="@+id/again"
             android:textSize="16sp"
-            android:text="@string/play_again"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="32dp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:background="@drawable/app_selector_ellipse_round_open_work"/>
+            android:gravity="right"
+            android:layout_height="39dp"
+            android:layout_width="120dp"
+            android:src="@drawable/app_selector_ellipse_round_again_open_work"/>
 
         <View
-            android:layout_width="30dp"
+            android:layout_width="38dp"
             android:layout_height="match_parent"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/more"
-            android:textSize="17sp"
-            android:text="@string/more_work"
-            android:gravity="center"
-            android:paddingLeft="33dp"
-            android:paddingRight="33dp"
-            android:layout_height="32dp"
-            android:layout_width="wrap_content"
-            android:textColor="@color/orange"
-            android:background="@drawable/app_selector_ellipse_round_more_work"/>
+            android:layout_height="39dp"
+            android:layout_width="120dp"
+            android:src="@drawable/app_selector_ellipse_round_more_work"/>
 
     </LinearLayout>
 

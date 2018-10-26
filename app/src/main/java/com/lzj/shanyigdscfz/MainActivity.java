@@ -32,7 +32,7 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
     private final String TAG = "wsy";
 
 
-    private TextView open, more;
+    private ImageView open, more;
 
     private TextView name, count, type;
 
@@ -60,8 +60,8 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
 
         BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_start_bg, view);
 
-        open = (TextView) findViewById(R.id.open);
-        more = (TextView) findViewById(R.id.more);
+        open = (ImageView) findViewById(R.id.open);
+        more = (ImageView) findViewById(R.id.more);
 
         type = (TextView) findViewById(R.id.type);
         name = (TextView) findViewById(R.id.name);

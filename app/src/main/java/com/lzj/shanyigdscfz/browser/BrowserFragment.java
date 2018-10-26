@@ -14,12 +14,14 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
 import com.lzj.arch.network.NetworkManager;
 import com.lzj.arch.rx.ObserverAdapter;
+import com.lzj.arch.util.BitmapUtils;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
@@ -86,7 +88,7 @@ public class BrowserFragment
     /**
      * 按钮
      */
-    private TextView again, more;
+    private ImageView again, more;
 
     /**
      * 开始广告
@@ -274,6 +276,8 @@ public class BrowserFragment
             quitConfirm = inflate(R.layout.app_view_work_end, container, false);
             more = ViewUtils.findView(quitConfirm, R.id.more);
             again = ViewUtils.findView(quitConfirm, R.id.again);
+            ImageView view = ViewUtils.findView(quitConfirm, R.id.work_end_bg);
+            BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_end_bg, view);
             more.setOnClickListener(this);
             again.setOnClickListener(this);
             quitConfirm.setOnClickListener(this);
