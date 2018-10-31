@@ -7,6 +7,6 @@
         />
 
     <solid
-        android:color="@color/orange_pressed"
+        android:color="@color/transparent_50_black"
         />
 </shape>

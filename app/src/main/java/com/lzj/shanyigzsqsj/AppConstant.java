@@ -34,7 +34,7 @@ public final class AppConstant {
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "D1190333-FCB5-55CA-1A9F-59027DF13718";
+    public static final String GAME_UUID = "FAA0AA0A-2EAC-7BD1-0A5A-80D3392EFCDB";
 
     /**
      * 作品名字
@@ -44,17 +44,17 @@ public final class AppConstant {
     /**
      * 作者
      */
-    public static final String AUTHOR_NAME = "作者: 椰籽树";
+    public static final String AUTHOR_NAME = "作者: 竹鼠保护协会";
 
     /**
      * 类型
      */
-    public static final String WORK_TYPE = "类型: 古风、宫斗、生存、言情";
+    public static final String WORK_TYPE = "类型: 现代、二次元、生存";
 
     /**
      * 作品字数
      */
-    public static final String WORK_COUNT = "字数: 1.8W";
+    public static final String WORK_COUNT = "字数: 1.4W";
 
     /**
      * 是否是竖屏 0横屏  1竖屏

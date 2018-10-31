@@ -15,6 +15,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
@@ -87,7 +88,7 @@ public class BrowserFragment
     /**
      * 按钮
      */
-    private ImageView again, more;
+    private TextView again, more;
 
     /**
      * 开始广告
@@ -276,7 +277,7 @@ public class BrowserFragment
             more = ViewUtils.findView(quitConfirm, R.id.more);
             again = ViewUtils.findView(quitConfirm, R.id.again);
             ImageView view = ViewUtils.findView(quitConfirm, R.id.work_end_bg);
-            BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_end_bg, view);
+            BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, view);
             more.setOnClickListener(this);
             again.setOnClickListener(this);
             quitConfirm.setOnClickListener(this);
