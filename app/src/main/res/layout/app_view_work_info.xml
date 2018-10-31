@@ -5,6 +5,7 @@
         android:id="@+id/name"
         android:textSize="16sp"
         android:text="作者: 饮杯无"
+        android:paddingBottom="75dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/font_black"/>
@@ -14,6 +15,7 @@
         android:textSize="16sp"
         android:layout_marginTop="8dp"
         android:text="字数: 6.2万"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/font_black"/>
@@ -23,6 +25,7 @@
         android:textSize="16sp"
         android:layout_marginTop="8dp"
         android:text="类型: 现代"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/font_black"/>
