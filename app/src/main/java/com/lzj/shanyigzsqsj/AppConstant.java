@@ -80,14 +80,6 @@ public final class AppConstant {
     public static final String GAME_DIE = BaWei.GAME_DIE == null ? Environment.getExternalStorageDirectory() + "/" + BaWei.PKG : BaWei.GAME_DIE;
 
     /**
-     * 开始播放路径
-     */
-    public static final String GAME_URL = "file://" + GAME_DIE + "/index.html?" +
-            "uuid=" + GAME_UUID +
-            "&client=android&gid="+ GAME_ID +
-            "&type=0&v=1.0.0&app_version=1.5.0&offline=1";
-
-    /**
      * 官网。
      */
     public static final String OFFICIAL_WEBSITE = "http://www.3000.com";

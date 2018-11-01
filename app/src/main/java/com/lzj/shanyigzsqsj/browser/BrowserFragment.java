@@ -322,7 +322,7 @@ public class BrowserFragment
             @Override
             public void onAdsReady(String blockId) {
                 if(startAds){
-                    mobgiVideoAd.show(getActivity(), AdBlockId);
+                    ToastUtils.showShort("广告加载完成，您可以前往观看广告获取闪币哦~");
                     startAds = false;
                 }
             }
@@ -373,19 +373,21 @@ public class BrowserFragment
     public void playAdsVideo() {
         startAds = true;
         if(mobgiVideoAd == null){
+            ToastUtils.showShort("正在加载广告中，请稍后....");
             initAds();
             return;
         }
         boolean cache = mobgiVideoAd.isReady(AdBlockId);
         if(cache){
-            mobgiVideoAd.show(getActivity(), AdBlockId);
             startAds = false;
+            mobgiVideoAd.show(getActivity(), AdBlockId);
         } else {
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
             } else {
                 ToastUtils.showShort("正在加载广告中，请稍后....");
             }
+            callback("playadBack","0");
         }
     }
 
