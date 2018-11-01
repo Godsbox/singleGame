@@ -95,6 +95,8 @@ public class BrowserFragment
      */
     private boolean startAds = false;
 
+    private boolean finish  =false;
+
     @Override
     public void onCreate(@Nullable Bundle state) {
         super.onCreate(state);
@@ -317,13 +319,27 @@ public class BrowserFragment
 
     private String AdBlockId = AppConstant.BLOCK_ID;
 
+    private void callbackSucceed(){
+        Log.d("wsy","返回播放器参数~~~~");
+        callback("playadBack","1");
+    }
+
+    private void callBackAdFailed(){
+        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
+        callback("playadBack","0");
+    }
+
+
     private void initAds(){
         IMobgiAdsListener listener = new IMobgiAdsListener() {
             @Override
             public void onAdsReady(String blockId) {
+                finish = true;
                 if(startAds){
-                    ToastUtils.showShort("广告加载完成，您可以前往观看广告获取闪币哦~");
+                    mobgiVideoAd.show(getActivity(), AdBlockId);
                     startAds = false;
+                } else {
+                    //ToastUtils.showShort("广告加载完成，您可以前往观看广告获取闪币哦~");
                 }
             }
 
@@ -359,35 +375,36 @@ public class BrowserFragment
         }
     }
 
-    private void callbackSucceed(){
-        Log.d("wsy","返回播放器参数~~~~");
-        callback("playadBack","1");
-    }
-
-    private void callBackAdFailed(){
-        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
-        callback("playadBack","0");
-    }
-
     @Override
     public void playAdsVideo() {
         startAds = true;
         if(mobgiVideoAd == null){
+            finish = false;
             ToastUtils.showShort("正在加载广告中，请稍后....");
             initAds();
             return;
         }
         boolean cache = mobgiVideoAd.isReady(AdBlockId);
         if(cache){
+            finish = true;
             startAds = false;
             mobgiVideoAd.show(getActivity(), AdBlockId);
         } else {
+            finish = false;
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
             } else {
                 ToastUtils.showShort("正在加载广告中，请稍后....");
             }
-            callback("playadBack","0");
+            Observable.timer(5000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+                @Override
+                public void onNext(Long aLong) {
+                    if(!finish){
+                        startAds = false;
+                        callback("playadBack","0");
+                    }
+                }
+            });
         }
     }
 
