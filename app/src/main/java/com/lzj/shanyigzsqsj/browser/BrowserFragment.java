@@ -355,10 +355,20 @@ public class BrowserFragment
             @Override
             public void onAdsDismissed(String blockId, MobgiAds.FinishState result) {
                 // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
-                if(result == MobgiAds.FinishState.COMPLETED){
-                    callbackSucceed();
-                } else {
-                    callBackAdFailed();
+                switch (result){
+                    case ERROR:
+                        callBackAdFailed();
+                        break;
+                    case SKIPPED:
+                        ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
+                        callback("playadBack","0");
+                        break;
+                    case COMPLETED:
+                        callbackSucceed();
+                        break;
+                        default:
+                            callBackAdFailed();
+                            break;
                 }
             }
 
