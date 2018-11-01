@@ -370,10 +370,13 @@ public class BrowserFragment
         if(mobgiVideoAd == null){
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
+                startAds = false;
+                callback("playadBack","0");
             }
             mobgiVideoAd = new MobgiVideoAd(getActivity(), listener);
         }
     }
+
 
     @Override
     public void playAdsVideo() {
@@ -393,6 +396,8 @@ public class BrowserFragment
             finish = false;
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
+                startAds = false;
+                callback("playadBack","0");
             } else {
                 ToastUtils.showShort("正在加载广告中，请稍后....");
             }

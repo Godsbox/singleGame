@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\project\\singleGame\\adlibs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\mintegral_reward_vast_end_ok.png",
-        "source": "C:\\Users\\4399-4399\\.gradle\\caches\\transforms-1\\files-1.1\\mintegral_videojs-v9.0.1.aar\\caeeceddff97522dd4b3962aebddfa29\\res\\drawable-hdpi-v4\\mintegral_reward_vast_end_ok.png"
-    },
-    {
         "merged": "D:\\project\\singleGame\\adlibs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\mintegral_cm_forward_disabled.png",
         "source": "C:\\Users\\4399-4399\\.gradle\\caches\\transforms-1\\files-1.1\\mintegral_common-v9.0.1.aar\\ed42330bc0230fe78fae31a63a3180d7\\res\\drawable-hdpi-v4\\mintegral_cm_forward_disabled.png"
+    },
+    {
+        "merged": "D:\\project\\singleGame\\adlibs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\mintegral_reward_vast_end_ok.png",
+        "source": "C:\\Users\\4399-4399\\.gradle\\caches\\transforms-1\\files-1.1\\mintegral_videojs-v9.0.1.aar\\caeeceddff97522dd4b3962aebddfa29\\res\\drawable-hdpi-v4\\mintegral_reward_vast_end_ok.png"
     },
     {
         "merged": "D:\\project\\singleGame\\adlibs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\mintegral_cm_highlight.png",
