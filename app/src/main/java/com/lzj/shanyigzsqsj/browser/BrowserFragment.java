@@ -325,10 +325,9 @@ public class BrowserFragment
     }
 
     private void callBackAdFailed(){
-        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
+        Log.d("wsy","失败了？？？");
         callback("playadBack","0");
     }
-
 
     private void initAds(){
         IMobgiAdsListener listener = new IMobgiAdsListener() {
@@ -349,26 +348,31 @@ public class BrowserFragment
 
             @Override
             public void onAdsFailure(String blockId, MobgiAdsError error, String message) {
-                callBackAdFailed();
+                /*if(!dismissError){
+                    callBackAdFailed();
+                }*/
+                // 有了等待5秒的逻辑  可以忽略这个错误
             }
 
             @Override
             public void onAdsDismissed(String blockId, MobgiAds.FinishState result) {
                 // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
                 switch (result){
-                    case ERROR:
-                        callBackAdFailed();
-                        break;
-                    case SKIPPED:
-                        ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
-                        callback("playadBack","0");
-                        break;
                     case COMPLETED:
                         callbackSucceed();
                         break;
-                        default:
-                            callBackAdFailed();
-                            break;
+                    case SKIPPED:
+                        ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
+                        callBackAdFailed();
+                        break;
+                    case ERROR:
+                        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
+                        callBackAdFailed();
+                        break;
+                    default:
+                        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
+                        callBackAdFailed();
+                        break;
                 }
             }
 
@@ -381,12 +385,11 @@ public class BrowserFragment
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
                 startAds = false;
-                callback("playadBack","0");
+                callBackAdFailed();
             }
             mobgiVideoAd = new MobgiVideoAd(getActivity(), listener);
         }
     }
-
 
     @Override
     public void playAdsVideo() {
@@ -395,6 +398,7 @@ public class BrowserFragment
             finish = false;
             ToastUtils.showShort("正在加载广告中，请稍后....");
             initAds();
+            finishWait();
             return;
         }
         boolean cache = mobgiVideoAd.isReady(AdBlockId);
@@ -407,20 +411,24 @@ public class BrowserFragment
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
                 startAds = false;
-                callback("playadBack","0");
+                callBackAdFailed();
             } else {
                 ToastUtils.showShort("正在加载广告中，请稍后....");
+                finishWait();
             }
-            Observable.timer(5000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
-                @Override
-                public void onNext(Long aLong) {
-                    if(!finish){
-                        startAds = false;
-                        callback("playadBack","0");
-                    }
-                }
-            });
         }
+    }
+
+    private void finishWait(){
+        Observable.timer(5000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+            @Override
+            public void onNext(Long aLong) {
+                if(!finish){
+                    startAds = false;
+                    callBackAdFailed();
+                }
+            }
+        });
     }
 
 }
