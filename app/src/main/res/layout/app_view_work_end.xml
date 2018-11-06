@@ -11,7 +11,7 @@
         android:layout_height="match_parent" />
 
     <ImageView
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_marginTop="18dp"
         android:layout_marginLeft="25dp"
         android:src="@mipmap/shanyi_logo"
@@ -25,7 +25,6 @@
         android:id="@+id/work_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/work_end_title"
         android:layout_above="@+id/enter"
         android:layout_centerHorizontal="true"/>
     <View
@@ -50,39 +49,28 @@
     <LinearLayout
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="68dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/enter"
-        android:layout_marginTop="68dp">
+        android:layout_alignParentBottom="true">
 
-        <TextView
+
+        <ImageView
             android:id="@+id/again"
-            android:textSize="16sp"
-            android:text="@string/play_again"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="32dp"
-            android:textColor="@color/white"
+            android:src="@mipmap/again"
             android:layout_width="wrap_content"
-            android:background="@drawable/app_selector_ellipse_round_open_work"/>
+            android:layout_height="wrap_content"/>
 
         <View
             android:layout_width="36dp"
             android:layout_height="match_parent"/>
 
-        <TextView
+
+        <ImageView
             android:id="@+id/more"
-            android:textSize="17sp"
-            android:text="@string/more_work"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="32dp"
+            android:src="@mipmap/more"
             android:layout_width="wrap_content"
-            android:textColor="@color/black"
-            android:background="@drawable/app_selector_ellipse_round_more_work"/>
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

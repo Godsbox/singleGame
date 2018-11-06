@@ -14,11 +14,11 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyigzsqsj',
-            appName          : 'zsqsj',
-            versionName      : '2.0.0',
+            appId            : 'com.lzj.shanyilangrs',
+            appName          : 'langrs',
+            versionName      : '1.0.0',
             prereleaseSuffix : '',
-            versionCode      : 2,
+            versionCode      : 1,
             minSdkVersion    : 15,
             compileSdkVersion: 25,
             targetSdkVersion : 22,
