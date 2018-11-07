@@ -22,9 +22,12 @@ import com.lzj.arch.app.web.WebFragment;
 import com.lzj.arch.network.NetworkManager;
 import com.lzj.arch.rx.ObserverAdapter;
 import com.lzj.arch.util.BitmapUtils;
+import com.lzj.arch.util.DateUtils;
+import com.lzj.arch.util.FormatUtils;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
+import com.lzj.arch.util.TimeUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
 import com.lzj.shanyilangrs.AppConstant;
@@ -34,10 +37,14 @@ import com.mobgi.IMobgiAdsListener;
 import com.mobgi.MobgiAds;
 import com.mobgi.MobgiAdsError;
 import com.mobgi.MobgiVideoAd;
+import com.mobgi.common.utils.FileUtil;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
+
+import java.io.BufferedWriter;
 import java.io.File;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
@@ -160,7 +167,7 @@ public class BrowserFragment
         if (url.startsWith("blob:")) {
             return null;
         }
-        Log.d("wsy","shouldInterceptRequest-> %s"+url);
+        Log.d("should","shouldInterceptRequest-> %s"+url);
 
         if (offline && (url.startsWith(OFFLINE_SHOULDINTER_URL) ||
                 url.startsWith("https://mapi.3000api.com/apis/soft/v1.0/game-test.html"))) {
@@ -320,12 +327,10 @@ public class BrowserFragment
     private String AdBlockId = AppConstant.BLOCK_ID;
 
     private void callbackSucceed(){
-        Log.d("wsy","返回播放器参数~~~~");
         callback("playadBack","1");
     }
 
     private void callBackAdFailed(){
-        Log.d("wsy","失败了？？？");
         callback("playadBack","0");
     }
 
@@ -344,6 +349,7 @@ public class BrowserFragment
 
             @Override
             public void onAdsPresent(String blockId) {
+                Log.d("wsy","出错了~ onAdsPresent == ");
             }
 
             @Override
@@ -352,10 +358,14 @@ public class BrowserFragment
                     callBackAdFailed();
                 }*/
                 // 有了等待5秒的逻辑  可以忽略这个错误
+                Log.d("wsy","出错了~ " + message + "error == "+ error);
+                //String errorRes = TimeUtils.getCurrentTimeFormat(0,DateUtils.getDatePattern()) + " ==== "+message+" === error :" + error;
+                //writeToLog(errorRes);
             }
 
             @Override
             public void onAdsDismissed(String blockId, MobgiAds.FinishState result) {
+                Log.d("wsy","onAdsDismissed！！！！ + result == " +result);
                 // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
                 switch (result){
                     case COMPLETED:
@@ -393,7 +403,6 @@ public class BrowserFragment
 
     @Override
     public void playAdsVideo() {
-        ToastUtils.showShort("调用了播放广告的接口！！！");
         startAds = true;
         if(mobgiVideoAd == null){
             finish = false;
@@ -404,6 +413,7 @@ public class BrowserFragment
         }
         boolean cache = mobgiVideoAd.isReady(AdBlockId);
         if(cache){
+            //ToastUtils.showShort("开始播放广告！！！");
             finish = true;
             startAds = false;
             mobgiVideoAd.show(getActivity(), AdBlockId);
@@ -430,6 +440,37 @@ public class BrowserFragment
                 }
             }
         });
+    }
+
+
+    /**
+     * 将字符串数据写入到文件中。
+     *
+     * @param data 徐写入的数据
+     * @return true：保存成功；false：保存失败
+     */
+    public static boolean writeToLog(String data) {
+        try {
+            File file = new File(AppConstant.GAME_DIE, "error_log.txt");     //文件路径（路径+文件名）
+            // 限制log文件的大小 超过20M时重置
+            if (file.exists() && file.length() > 1024 * 1024 * 20) {
+                FileUtil.deleteFile(file);
+            }
+            if (!file.exists()) {   //文件不存在则创建文件，先创建目录
+                File dir = new File(file.getParent());
+                dir.mkdirs();
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(data + "\r\n");// 往已有的文件上添加字符串
+            bw.close();
+            fw.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }
