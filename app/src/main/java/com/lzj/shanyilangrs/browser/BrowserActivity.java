@@ -72,6 +72,7 @@ public class BrowserActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         BaWei.getInstance().removeALLActivity_();
+                        System.exit(0);
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
