@@ -2,9 +2,9 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/app_shape_ellipse_round_transparent_half"
+        android:drawable="@mipmap/again_press"
         />
     <item
-        android:drawable="@drawable/app_shape_ellipse_round_black"
+        android:drawable="@mipmap/again"
         />
 </selector>

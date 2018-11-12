@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyilangrs.browser;
+package com.lzj.shanyipnnxj.browser;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,24 +15,20 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
 import com.lzj.arch.network.NetworkManager;
 import com.lzj.arch.rx.ObserverAdapter;
 import com.lzj.arch.util.BitmapUtils;
-import com.lzj.arch.util.DateUtils;
-import com.lzj.arch.util.FormatUtils;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
-import com.lzj.arch.util.TimeUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
-import com.lzj.shanyilangrs.AppConstant;
-import com.lzj.shanyilangrs.BaWei;
-import com.lzj.shanyilangrs.R;
+import com.lzj.shanyipnnxj.AppConstant;
+import com.lzj.shanyipnnxj.BaWei;
+import com.lzj.shanyipnnxj.R;
 import com.mobgi.IMobgiAdsListener;
 import com.mobgi.MobgiAds;
 import com.mobgi.MobgiAdsError;
@@ -57,12 +53,12 @@ import io.reactivex.schedulers.Schedulers;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
-import static com.lzj.shanyilangrs.AppConstant.GAME_DIR_PRE;
-import static com.lzj.shanyilangrs.AppConstant.GAME_ID;
-import static com.lzj.shanyilangrs.AppConstant.GAME_UUID;
-import static com.lzj.shanyilangrs.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
-import static com.lzj.shanyilangrs.AppConstant.OFFLINE_SHOULDINTER_URL;
-import static com.lzj.shanyilangrs.AppConstant.getUserAgent;
+import static com.lzj.shanyipnnxj.AppConstant.GAME_DIR_PRE;
+import static com.lzj.shanyipnnxj.AppConstant.GAME_ID;
+import static com.lzj.shanyipnnxj.AppConstant.GAME_UUID;
+import static com.lzj.shanyipnnxj.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
+import static com.lzj.shanyipnnxj.AppConstant.OFFLINE_SHOULDINTER_URL;
+import static com.lzj.shanyipnnxj.AppConstant.getUserAgent;
 
 /**
  * 浏览器界面
@@ -286,7 +282,7 @@ public class BrowserFragment
             more = ViewUtils.findView(quitConfirm, R.id.more);
             again = ViewUtils.findView(quitConfirm, R.id.again);
             ImageView view = ViewUtils.findView(quitConfirm, R.id.work_end_bg);
-            BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_end_bg, view);
+            BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, view);
             more.setOnClickListener(this);
             again.setOnClickListener(this);
             quitConfirm.setOnClickListener(this);

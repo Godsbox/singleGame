@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">狼人杀之谁是下一个</string>
+    <string name="app_name">胖妞逆袭记</string>
     <string name="nickname">昵称</string>
     <string name="index">首页</string>
 
@@ -23,7 +23,7 @@
     <string name="enter_work">点击开始</string>
     <string name="more_work">更多推荐</string>
 
-    <string name="work_finish_tip">请下载【闪艺】APP</string>
+    <string name="work_finish_tip">阅读更多好玩的互动文字小说\n请下载【闪艺】APP</string>
     <string name="look_more_work">查看更多请前往闪艺APP~</string>
     <string name="go_look">前往查看</string>
 </resources>

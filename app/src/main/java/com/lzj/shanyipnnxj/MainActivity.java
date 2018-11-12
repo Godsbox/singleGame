@@ -1,11 +1,10 @@
-package com.lzj.shanyilangrs;
+package com.lzj.shanyipnnxj;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import com.lzj.arch.util.BitmapUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.wujilin.doorbell.Doorbell;
 import com.lzj.arch.app.web.WebConstant;
-import com.lzj.shanyilangrs.browser.BrowserActivity;
+import com.lzj.shanyipnnxj.browser.BrowserActivity;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -58,7 +57,7 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
 
         ImageView view = (ImageView) findViewById(R.id.work_start_bg);
 
-        //BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, view);
+        BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, view);
 
         open = (ImageView) findViewById(R.id.open);
 

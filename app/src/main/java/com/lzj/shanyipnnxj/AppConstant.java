@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyilangrs;
+package com.lzj.shanyipnnxj;
 
 import android.os.Build;
 import android.os.Environment;
 
-import static com.lzj.shanyilangrs.BuildConfig.APP_VERSION;
+import static com.lzj.shanyipnnxj.BuildConfig.APP_VERSION;
 
 /**
  * 应用全局常量类。
@@ -19,7 +19,7 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "95319";
+    public static final String GAME_ID = "95598";
 
     /**
      * 广告的 appkey
@@ -34,22 +34,22 @@ public final class AppConstant {
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "41678AC6-0AA8-7920-5CD9-B6D64B138102";
+    public static final String GAME_UUID = "CFCE9047-2AD3-ABA7-B75B-2769C6063B25";
 
     /**
      * 作者
      */
-    public static final String AUTHOR_NAME = "作者: 竹鼠保护协会";
+    public static final String AUTHOR_NAME = "作者: 印象凉烟雨";
 
     /**
      * 类型
      */
-    public static final String WORK_TYPE = "类型: 现代、二次元、生存";
+    public static final String WORK_TYPE = "类型: 逆袭、现代、言情";
 
     /**
      * 作品字数
      */
-    public static final String WORK_COUNT = "字数: 1.4W";
+    public static final String WORK_COUNT = "字数: 35.6万";
 
     /**
      * 是否是竖屏 0横屏  1竖屏

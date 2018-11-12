@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyilangrs.browser;
+package com.lzj.shanyipnnxj.browser;
 
 import java.io.File;
 
@@ -9,8 +9,8 @@ import com.lzj.arch.util.ClipboardUtils;
 import com.lzj.arch.util.DeviceUtils;
 import com.lzj.arch.util.FileUtils;
 import com.lzj.arch.app.web.WebInterface;
-import com.lzj.shanyilangrs.AppConstant;
-import com.lzj.shanyilangrs.BuildConfig;
+import com.lzj.shanyipnnxj.AppConstant;
+import com.lzj.shanyipnnxj.BuildConfig;
 
 import android.webkit.JavascriptInterface;
 
