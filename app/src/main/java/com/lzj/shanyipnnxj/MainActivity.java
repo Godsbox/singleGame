@@ -31,7 +31,7 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
     private final String TAG = "wsy";
 
 
-    private ImageView open;
+    private ImageView open, more;
 
     private TextView name, count, type;
 
@@ -60,6 +60,7 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
         BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, view);
 
         open = (ImageView) findViewById(R.id.open);
+        more = (ImageView)findViewById(R.id.more);
 
         type = (TextView) findViewById(R.id.type);
         name = (TextView) findViewById(R.id.name);
@@ -70,6 +71,7 @@ public class MainActivity extends PassiveActivity<Contract.Presenter> implements
         count.setText(AppConstant.WORK_COUNT);
 
         open.setOnClickListener(this);
+        more.setOnClickListener(this);
         BaWei.getInstance().addActivity_(this);
     }
 
