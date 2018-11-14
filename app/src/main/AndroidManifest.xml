@@ -39,20 +39,6 @@
             android:exported="true"
             android:screenOrientation="landscape"
             android:configChanges="keyboardHidden|orientation|screenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="com.lzj.shanyi.action.SCHEME" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:scheme="lzj3000_game"
-                    />
-            </intent-filter>
 
         </activity>
 
@@ -70,7 +56,20 @@
             android:launchMode="singleTask"
             android:hardwareAccelerated="true"
             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.lzj.shanyi.action.SCHEME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="lzj3000_game"
+                    />
+            </intent-filter>
         </activity>
     </application>
 
