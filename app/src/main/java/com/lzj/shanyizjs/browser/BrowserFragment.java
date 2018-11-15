@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyipnnxj.browser;
+package com.lzj.shanyizjs.browser;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,9 +26,9 @@ import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
-import com.lzj.shanyipnnxj.AppConstant;
-import com.lzj.shanyipnnxj.BaWei;
-import com.lzj.shanyipnnxj.R;
+import com.lzj.shanyizjs.AppConstant;
+import com.lzj.shanyizjs.BaWei;
+import com.lzj.shanyizjs.R;
 import com.mobgi.IMobgiAdsListener;
 import com.mobgi.MobgiAds;
 import com.mobgi.MobgiAdsError;
@@ -53,12 +53,12 @@ import io.reactivex.schedulers.Schedulers;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
-import static com.lzj.shanyipnnxj.AppConstant.GAME_DIR_PRE;
-import static com.lzj.shanyipnnxj.AppConstant.GAME_ID;
-import static com.lzj.shanyipnnxj.AppConstant.GAME_UUID;
-import static com.lzj.shanyipnnxj.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
-import static com.lzj.shanyipnnxj.AppConstant.OFFLINE_SHOULDINTER_URL;
-import static com.lzj.shanyipnnxj.AppConstant.getUserAgent;
+import static com.lzj.shanyizjs.AppConstant.GAME_DIR_PRE;
+import static com.lzj.shanyizjs.AppConstant.GAME_ID;
+import static com.lzj.shanyizjs.AppConstant.GAME_UUID;
+import static com.lzj.shanyizjs.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
+import static com.lzj.shanyizjs.AppConstant.OFFLINE_SHOULDINTER_URL;
+import static com.lzj.shanyizjs.AppConstant.getUserAgent;
 
 /**
  * 浏览器界面

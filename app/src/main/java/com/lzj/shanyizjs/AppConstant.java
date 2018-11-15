@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyipnnxj;
+package com.lzj.shanyizjs;
 
 import android.os.Build;
 import android.os.Environment;
 
-import static com.lzj.shanyipnnxj.BuildConfig.APP_VERSION;
+import static com.lzj.shanyizjs.BuildConfig.APP_VERSION;
 
 /**
  * 应用全局常量类。
@@ -19,7 +19,7 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "95598";
+    public static final String GAME_ID = "95604";
 
     /**
      * 广告的 appkey
@@ -34,7 +34,7 @@ public final class AppConstant {
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "CFCE9047-2AD3-ABA7-B75B-2769C6063B25";
+    public static final String GAME_UUID = "ED4C4969-0995-E859-66CA-BBDD61785FFE";
 
     /**
      * 作者

@@ -1,4 +1,4 @@
-package com.lzj.shanyipnnxj;
+package com.lzj.shanyizjs;
 
 import android.os.Environment;
 

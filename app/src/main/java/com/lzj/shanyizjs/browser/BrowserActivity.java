@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyipnnxj.browser;
+package com.lzj.shanyizjs.browser;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.view.KeyEvent;
 import com.lzj.arch.app.PassiveActivity;
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.core.Contract;
-import com.lzj.shanyipnnxj.AppConstant;
-import com.lzj.shanyipnnxj.BaWei;
-import com.lzj.shanyipnnxj.R;
+import com.lzj.shanyizjs.AppConstant;
+import com.lzj.shanyizjs.BaWei;
+import com.lzj.shanyizjs.R;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;

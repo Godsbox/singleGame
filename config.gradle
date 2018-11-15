@@ -14,11 +14,11 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyipnnxj',
-            appName          : 'pnnxj',
-            versionName      : '1.1.0',
+            appId            : 'com.lzj.shanyizjs',
+            appName          : 'zjs',
+            versionName      : '1.0.0',
             prereleaseSuffix : '',
-            versionCode      : 2,
+            versionCode      : 1,
             minSdkVersion    : 15,
             compileSdkVersion: 25,
             targetSdkVersion : 22,

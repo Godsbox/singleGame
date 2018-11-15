@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017 3000.com All Rights Reserved. 
  */
-package com.lzj.shanyipnnxj;
+package com.lzj.shanyizjs;
 
 import io.reactivex.Observable;
 
