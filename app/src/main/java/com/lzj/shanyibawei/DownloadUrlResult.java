@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017 3000.com All Rights Reserved. 
  */
-package com.lzj.shanyizjs;
+package com.lzj.shanyibawei;
 
 import com.google.gson.annotations.SerializedName;
 

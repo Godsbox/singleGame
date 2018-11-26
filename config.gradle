@@ -14,8 +14,8 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyizjs',
-            appName          : 'zjs',
+            appId            : 'com.lzj.shanyibawei',
+            appName          : 'bawei',
             versionName      : '1.0.0',
             prereleaseSuffix : '',
             versionCode      : 1,

@@ -1,4 +1,4 @@
-package com.lzj.shanyizjs.browser;
+package com.lzj.shanyibawei.browser;
 
 import com.lzj.arch.app.web.WebModel;
 
