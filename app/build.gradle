@@ -128,13 +128,12 @@ android {
 repositories {
     flatDir {
         dirs 'libs'
-        dirs '../adlibs/libs'
+        dirs '../adlib_4399/libs'
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':arch')
-    // LeakCanary
-    implementation project(':adlibs')
+    implementation project(':adlib_4399')
 }

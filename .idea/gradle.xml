@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/adlibs" />
+            <option value="$PROJECT_DIR$/adlib_4399" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/arch" />
           </set>
