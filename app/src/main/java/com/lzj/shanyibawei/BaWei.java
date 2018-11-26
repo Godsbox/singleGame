@@ -13,6 +13,8 @@ import android.support.v4.util.ArraySet;
 import com.lzj.arch.file.KeyValueCaches;
 import com.lzj.arch.file.SharedPreferencesImpl;
 import com.lzj.arch.util.ContextUtils;
+import com.mob4399.adunion.AdUnionSDK;
+import com.mob4399.adunion.listener.OnAuInitListener;
 import com.mobgi.MobgiAds;
 import com.mobgi.common.utils.LogUtil;
 import com.tencent.smtt.sdk.QbSdk;
@@ -91,7 +93,7 @@ public class BaWei extends MultiDexApplication {
         super.onCreate();
         ContextUtils.setAppContext(this);
         LogUtil.setDebug(true);
-        MobgiAds.init(this, AD_APP_KEY);
+        initAdSDK();
         //initApiClient();
         QbSdk.initX5Environment(this, new QbSdk.PreInitCallback() {
             @Override
@@ -123,6 +125,30 @@ public class BaWei extends MultiDexApplication {
         }
     }
 
+    /**
+     * SDK初始化方法
+     */
+    private void initAdSDK(){
+        AdUnionSDK.init(this,AD_APP_KEY, onAuInitListener);
+        /**
+         //可选初始化方法2
+         AdUnionParams params = new AdUnionParams.Builder(appId)
+         .setDebug(true).build();
+         AdUnionSDK.init(this, params, onAuInitListener);
+         **/
+    }
+
+    private OnAuInitListener onAuInitListener = new OnAuInitListener() {
+        @Override
+        public void onSucceed() {
+            //SDK初始化成功后，进行广告加载
+        }
+
+        @Override
+        public void onFailed(String s) {
+            // SDK初始化失败回调
+        }
+    };
 
     /**
      * 检查启动权限是否均已授权。

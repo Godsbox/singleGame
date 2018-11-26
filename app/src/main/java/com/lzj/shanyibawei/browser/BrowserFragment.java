@@ -29,6 +29,8 @@ import com.lzj.arch.util.ViewUtils;
 import com.lzj.shanyibawei.AppConstant;
 import com.lzj.shanyibawei.BaWei;
 import com.lzj.shanyibawei.R;
+import com.mob4399.adunion.AdUnionVideo;
+import com.mob4399.adunion.listener.OnAuVideoAdListener;
 import com.mobgi.IMobgiAdsListener;
 import com.mobgi.MobgiAds;
 import com.mobgi.MobgiAdsError;
@@ -106,7 +108,7 @@ public class BrowserFragment
         int layoutId = getArgument(EXTRA_LAYOUT_ID);
         getConfig().setLayoutResource(layoutId);
 
-        Observable.timer(30000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+        Observable.timer(10000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
             @Override
             public void onNext(Long aLong) {
                 if(NetworkManager.isWifi()){
@@ -318,7 +320,7 @@ public class BrowserFragment
         }
     }
 
-    private MobgiVideoAd mobgiVideoAd;
+    private AdUnionVideo mobgiVideoAd;
 
     private String AdBlockId = AppConstant.BLOCK_ID;
 
@@ -331,60 +333,46 @@ public class BrowserFragment
     }
 
     private void initAds(){
-        IMobgiAdsListener listener = new IMobgiAdsListener() {
+        OnAuVideoAdListener listener = new OnAuVideoAdListener() {
+
             @Override
-            public void onAdsReady(String blockId) {
-                finish = true;
+            public void onVideoAdLoaded() {
+                Log.d("wsy","=====onVideoAdLoaded========");
+                /*finish = true;
                 if(startAds){
-                    mobgiVideoAd.show(getActivity(), AdBlockId);
+                    mobgiVideoAd.show();
                     startAds = false;
                 } else {
                     //ToastUtils.showShort("广告加载完成，您可以前往观看广告获取闪币哦~");
-                }
-            }
-
-            @Override
-            public void onAdsPresent(String blockId) {
-                Log.d("wsy","出错了~ onAdsPresent == ");
-            }
-
-            @Override
-            public void onAdsFailure(String blockId, MobgiAdsError error, String message) {
-                /*if(!dismissError){
-                    callBackAdFailed();
                 }*/
+            }
+
+            @Override
+            public void onVideoAdShow() {
+                callbackSucceed();
+                Log.d("wsy","=====onVideoAdShow  onVideoAdShow ========");
+            }
+
+            @Override
+            public void onVideoAdFailed(String s) {
+                ToastUtils.showShort("很抱歉，广告加载错误，请重试~");
+                callBackAdFailed();
+
                 // 有了等待5秒的逻辑  可以忽略这个错误
-                Log.d("wsy","出错了~ " + message + "error == "+ error);
+                Log.d("wsy","出错了~ " + s);
                 //String errorRes = TimeUtils.getCurrentTimeFormat(0,DateUtils.getDatePattern()) + " ==== "+message+" === error :" + error;
                 //writeToLog(errorRes);
             }
 
             @Override
-            public void onAdsDismissed(String blockId, MobgiAds.FinishState result) {
-                Log.d("wsy","onAdsDismissed！！！！ + result == " +result);
-                // FinishState.ERROR，FinishState.SKIPPED，FinishState. COMPLETED
-                switch (result){
-                    case COMPLETED:
-                        callbackSucceed();
-                        break;
-                    case SKIPPED:
-                        ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
-                        callBackAdFailed();
-                        break;
-                    case ERROR:
-                        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
-                        callBackAdFailed();
-                        break;
-                    default:
-                        ToastUtils.showShort("很抱歉，广告加载错误，请重新观看~");
-                        callBackAdFailed();
-                        break;
-                }
+            public void onVideoAdClicked() {
+
             }
 
             @Override
-            public void onAdsClick(String blockId) {
-
+            public void onVideoAdClosed() {
+                ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
+                callBackAdFailed();
             }
         };
         if(mobgiVideoAd == null){
@@ -393,7 +381,7 @@ public class BrowserFragment
                 startAds = false;
                 callBackAdFailed();
             }
-            mobgiVideoAd = new MobgiVideoAd(getActivity(), listener);
+            mobgiVideoAd = new AdUnionVideo(getActivity(), AdBlockId, listener);
         }
     }
 
@@ -407,23 +395,10 @@ public class BrowserFragment
             finishWait();
             return;
         }
-        boolean cache = mobgiVideoAd.isReady(AdBlockId);
-        if(cache){
-            //ToastUtils.showShort("开始播放广告！！！");
-            finish = true;
-            startAds = false;
-            mobgiVideoAd.show(getActivity(), AdBlockId);
-        } else {
-            finish = false;
-            if(!NetworkManager.isConnected()){
-                ToastUtils.showShort(R.string.http_code_no_network);
-                startAds = false;
-                callBackAdFailed();
-            } else {
-                ToastUtils.showShort("正在加载广告中，请稍后....");
-                finishWait();
-            }
-        }
+        //ToastUtils.showShort("开始播放广告！！！");
+        finish = true;
+        startAds = false;
+        mobgiVideoAd.show();
     }
 
     private void finishWait(){

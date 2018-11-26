@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion apk.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 27
+        minSdkVersion apk.minSdkVersion
+        targetSdkVersion apk.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -24,12 +24,14 @@ android {
             dirs 'libs'
         }
     }
+    aaptOptions {
+        ignoreAssetsPattern '.gitignore'
+    }
 }
 
 dependencies {
 
-    implementation fileTree(dir: 'libs',
-            excludes: ['runtime-1.1.0.jar','common-1.1.0.jar'], //编译版本低于27的需引用这两个jar包
+    implementation fileTree(dir: 'libs', //编译版本低于27的需引用这两个jar包
             include: ['*.jar'])
     // 引入libs文件夹下所有的aar文件，不需要引入的建议删除，在需要时再添加
     fileTree(dir: 'libs', include: ['*.aar']).each { file ->
@@ -39,15 +41,15 @@ dependencies {
     }
 
     // 公共
-    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation 'com.android.support:support-annotations:25.3.1'
     implementation 'com.google.code.gson:gson:2.7'
     implementation 'com.mcxiaoke.volley:library:1.0.18'
 
     // Inmobi依赖
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.android.support:multidex:1.0.2'
-    implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:support-v4:25.3.1'
+    implementation 'com.android.support:recyclerview-v7:25.3.1'
 
 
 }
