@@ -21,9 +21,11 @@ import com.lzj.arch.app.web.WebFragment;
 import com.lzj.arch.network.NetworkManager;
 import com.lzj.arch.rx.ObserverAdapter;
 import com.lzj.arch.util.BitmapUtils;
+import com.lzj.arch.util.DateUtils;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
+import com.lzj.arch.util.TimeUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
 import com.lzj.shanyibawei.AppConstant;
@@ -100,7 +102,10 @@ public class BrowserFragment
      */
     private boolean startAds = false;
 
-    private boolean finish  =false;
+    /**
+     * 是否已经加载完成
+     */
+    private boolean finish = false;
 
     @Override
     public void onCreate(@Nullable Bundle state) {
@@ -325,10 +330,12 @@ public class BrowserFragment
     private String AdBlockId = AppConstant.BLOCK_ID;
 
     private void callbackSucceed(){
+        finish = false;
         callback("playadBack","1");
     }
 
     private void callBackAdFailed(){
+        finish = false;
         callback("playadBack","0");
     }
 
@@ -338,18 +345,17 @@ public class BrowserFragment
             @Override
             public void onVideoAdLoaded() {
                 Log.d("wsy","=====onVideoAdLoaded========");
-                /*finish = true;
+                finish = true;
                 if(startAds){
                     mobgiVideoAd.show();
                     startAds = false;
                 } else {
                     //ToastUtils.showShort("广告加载完成，您可以前往观看广告获取闪币哦~");
-                }*/
+                }
             }
 
             @Override
             public void onVideoAdShow() {
-                callbackSucceed();
                 Log.d("wsy","=====onVideoAdShow  onVideoAdShow ========");
             }
 
@@ -360,21 +366,21 @@ public class BrowserFragment
 
                 // 有了等待5秒的逻辑  可以忽略这个错误
                 Log.d("wsy","出错了~ " + s);
-                //String errorRes = TimeUtils.getCurrentTimeFormat(0,DateUtils.getDatePattern()) + " ==== "+message+" === error :" + error;
-                //writeToLog(errorRes);
+                String errorRes = TimeUtils.getCurrentTimeFormat(0, DateUtils.getDatePattern()) + " ==== "+s;
+                writeToLog(errorRes);
             }
 
             @Override
             public void onVideoAdClicked() {
-
+                callbackSucceed();
             }
 
             @Override
             public void onVideoAdClosed() {
-                ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
-                callBackAdFailed();
+                callbackSucceed();
             }
         };
+        //ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
         if(mobgiVideoAd == null){
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
@@ -387,6 +393,7 @@ public class BrowserFragment
 
     @Override
     public void playAdsVideo() {
+        Log.d("wsy","调用了！！！");
         startAds = true;
         if(mobgiVideoAd == null){
             finish = false;
@@ -396,8 +403,9 @@ public class BrowserFragment
             return;
         }
         //ToastUtils.showShort("开始播放广告！！！");
-        finish = true;
-        startAds = false;
+        if(!finish){
+            ToastUtils.showShort("正在加载广告中，请稍后....");
+        }
         mobgiVideoAd.show();
     }
 

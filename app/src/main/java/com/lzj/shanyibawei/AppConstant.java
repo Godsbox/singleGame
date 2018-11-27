@@ -19,22 +19,22 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "95701";
+    public static final String GAME_ID = "95860";
 
     /**
      * 广告的 appkey
      */
-    public static final String AD_APP_KEY = "B7CE5F5F6596DDAEF2F7";
+    public static final String AD_APP_KEY = "165";
 
     /**
      * 广告位id
      */
-    public static final String BLOCK_ID = "2018112120160302362217";
+    public static final String BLOCK_ID = "463";
 
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "D61BE275-F662-3738-5185-B677513AB45E";
+    public static final String GAME_UUID = "FE2C378E-5B7E-317E-E131-1B8AD2EDC7CB";
 
     /**
      * 作者
