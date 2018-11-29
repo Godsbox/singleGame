@@ -111,7 +111,7 @@ android {
         }
 
         // 拷贝 mappings.txt 文件
-        if (variant.buildType.isMinifyEnabled()) {
+        /*if (variant.buildType.isMinifyEnabled()) {
             variant.assemble.doLast {
                 copy {
                     from variant.mappingFile
@@ -121,7 +121,7 @@ android {
                     }
                 }
             }
-        }
+        }*/
     }
 }
 
