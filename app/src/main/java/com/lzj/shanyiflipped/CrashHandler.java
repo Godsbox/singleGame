@@ -1,4 +1,4 @@
-package com.lzj.shanyibawei;
+package com.lzj.shanyiflipped;
 
 import android.os.Environment;
 

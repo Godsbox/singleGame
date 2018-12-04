@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyibawei.play;
+package com.lzj.shanyiflipped.play;
 
 import com.lzj.arch.core.Model;
 

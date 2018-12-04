@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyibawei.browser;
+package com.lzj.shanyiflipped.browser;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,15 +28,11 @@ import com.lzj.arch.util.StringUtils;
 import com.lzj.arch.util.TimeUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
-import com.lzj.shanyibawei.AppConstant;
-import com.lzj.shanyibawei.BaWei;
-import com.lzj.shanyibawei.R;
+import com.lzj.shanyiflipped.AppConstant;
+import com.lzj.shanyiflipped.BaWei;
+import com.lzj.shanyiflipped.R;
 import com.mob4399.adunion.AdUnionVideo;
 import com.mob4399.adunion.listener.OnAuVideoAdListener;
-import com.mobgi.IMobgiAdsListener;
-import com.mobgi.MobgiAds;
-import com.mobgi.MobgiAdsError;
-import com.mobgi.MobgiVideoAd;
 import com.mobgi.common.utils.FileUtil;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
@@ -57,12 +53,12 @@ import io.reactivex.schedulers.Schedulers;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
-import static com.lzj.shanyibawei.AppConstant.GAME_DIR_PRE;
-import static com.lzj.shanyibawei.AppConstant.GAME_ID;
-import static com.lzj.shanyibawei.AppConstant.GAME_UUID;
-import static com.lzj.shanyibawei.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
-import static com.lzj.shanyibawei.AppConstant.OFFLINE_SHOULDINTER_URL;
-import static com.lzj.shanyibawei.AppConstant.getUserAgent;
+import static com.lzj.shanyiflipped.AppConstant.GAME_DIR_PRE;
+import static com.lzj.shanyiflipped.AppConstant.GAME_ID;
+import static com.lzj.shanyiflipped.AppConstant.GAME_UUID;
+import static com.lzj.shanyiflipped.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
+import static com.lzj.shanyiflipped.AppConstant.OFFLINE_SHOULDINTER_URL;
+import static com.lzj.shanyiflipped.AppConstant.getUserAgent;
 
 /**
  * 浏览器界面

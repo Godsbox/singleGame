@@ -14,8 +14,8 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyibawei',
-            appName          : 'bawei',
+            appId            : 'com.lzj.shanyiflipped',
+            appName          : 'flipped',
             versionName      : '1.0.0',
             prereleaseSuffix : '',
             versionCode      : 1,

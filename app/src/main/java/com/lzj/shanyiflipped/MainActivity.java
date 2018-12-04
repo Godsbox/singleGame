@@ -1,4 +1,4 @@
-package com.lzj.shanyibawei;
+package com.lzj.shanyiflipped;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import com.lzj.arch.util.BitmapUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.wujilin.doorbell.Doorbell;
 import com.lzj.arch.app.web.WebConstant;
-import com.lzj.shanyibawei.browser.BrowserActivity;
+import com.lzj.shanyiflipped.browser.BrowserActivity;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

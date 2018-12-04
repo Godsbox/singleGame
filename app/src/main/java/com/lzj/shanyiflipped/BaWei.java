@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyibawei;
+package com.lzj.shanyiflipped;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,7 +15,6 @@ import com.lzj.arch.file.SharedPreferencesImpl;
 import com.lzj.arch.util.ContextUtils;
 import com.mob4399.adunion.AdUnionSDK;
 import com.mob4399.adunion.listener.OnAuInitListener;
-import com.mobgi.MobgiAds;
 import com.mobgi.common.utils.LogUtil;
 import com.tencent.smtt.sdk.QbSdk;
 
@@ -31,8 +30,8 @@ import static com.lzj.arch.util.OsUtils.asOfMarshmallow;
 import static android.Manifest.permission.READ_PHONE_STATE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static com.lzj.shanyibawei.AppConstant.AD_APP_KEY;
-import static com.lzj.shanyibawei.BuildConfig.BUILD_TYPE;
+import static com.lzj.shanyiflipped.AppConstant.AD_APP_KEY;
+import static com.lzj.shanyiflipped.BuildConfig.BUILD_TYPE;
 
 /**
  * 单独游戏应用。
