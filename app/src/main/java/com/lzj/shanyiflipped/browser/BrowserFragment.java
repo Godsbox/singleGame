@@ -352,6 +352,7 @@ public class BrowserFragment
 
             @Override
             public void onVideoAdShow() {
+                finish = true;
                 Log.d("wsy","=====onVideoAdShow  onVideoAdShow ========");
             }
 
@@ -401,12 +402,13 @@ public class BrowserFragment
         //ToastUtils.showShort("开始播放广告！！！");
         if(!finish){
             ToastUtils.showShort("正在加载广告中，请稍后....");
+            finishWait();
         }
         mobgiVideoAd.show();
     }
 
     private void finishWait(){
-        Observable.timer(5000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+        Observable.timer(3000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
             @Override
             public void onNext(Long aLong) {
                 if(!finish){
