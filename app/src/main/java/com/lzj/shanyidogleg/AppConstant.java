@@ -24,12 +24,12 @@ public final class AppConstant {
     /**
      * 广告的 appkey
      */
-    public static final String AD_APP_KEY = "223";
+    public static final String AD_APP_KEY = "247";
 
     /**
      * 广告位id
      */
-    public static final String BLOCK_ID = "648";
+    public static final String BLOCK_ID = "745";
 
     /**
      * 第一个json
