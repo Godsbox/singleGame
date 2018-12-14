@@ -216,10 +216,10 @@ public class BrowserFragment
         String mime = "audio/mpeg";
         try {
             int dianIndex = url.lastIndexOf(".");
-            if (dianIndex != -1) {//获取资源文件的格式,例如这是一个.png,还是.js,还是.mp3
+            if (dianIndex != -1) {
                 mime = url.substring(dianIndex + 1);
                 mime = MimeTypeMap.getSingleton().getMimeTypeFromExtension(mime);
-                if (mime == null) {//假设没有获取到正常的mime类型,则设置为通用类型
+                if (mime == null) {
                     mime = "*/*";
                 }
             }
@@ -326,13 +326,11 @@ public class BrowserFragment
     private String AdBlockId = AppConstant.BLOCK_ID;
 
     private void callbackSucceed(){
-        Log.d("wsy","返回成功成功了！");
         finish = false;
         callback("playadBack","1");
     }
 
     private void callBackAdFailed(){
-        Log.d("wsy","返回失败了！");
         finish = false;
         callback("playadBack","0");
     }
@@ -362,7 +360,6 @@ public class BrowserFragment
                 callBackAdFailed();
 
                 // 有了等待5秒的逻辑  可以忽略这个错误
-                Log.d("wsy","出错了~ " + s);
                 String errorRes = TimeUtils.getCurrentTimeFormat(0, DateUtils.getDatePattern()) + " ==== "+s;
                 writeToLog(errorRes);
             }
@@ -377,7 +374,6 @@ public class BrowserFragment
                 callbackSucceed();
             }
         };
-        //ToastUtils.showShort("广告未播放完毕，请重新观看哟~");
         if(mobgiVideoAd == null){
             if(!NetworkManager.isConnected()){
                 ToastUtils.showShort(R.string.http_code_no_network);
@@ -391,8 +387,7 @@ public class BrowserFragment
     @Override
     public void playAdsVideo() {
         Log.d("wsy","调用了！！！");
-        callbackSucceed();
-        /*startAds = true;
+        startAds = true;
         if(mobgiVideoAd == null){
             finish = false;
             ToastUtils.showShort("正在加载广告中，请稍后....");
@@ -400,12 +395,11 @@ public class BrowserFragment
             finishWait();
             return;
         }
-        //ToastUtils.showShort("开始播放广告！！！");
         if(!finish){
             ToastUtils.showShort("正在加载广告中，请稍后....");
             finishWait();
         }
-        mobgiVideoAd.show();*/
+        mobgiVideoAd.show();
     }
 
     private void finishWait(){
@@ -429,19 +423,19 @@ public class BrowserFragment
      */
     public static boolean writeToLog(String data) {
         try {
-            File file = new File(AppConstant.GAME_DIE, "error_log.txt");     //文件路径（路径+文件名）
+            File file = new File(AppConstant.GAME_DIE, "error_log.txt");
             // 限制log文件的大小 超过20M时重置
             if (file.exists() && file.length() > 1024 * 1024 * 20) {
                 FileUtil.deleteFile(file);
             }
-            if (!file.exists()) {   //文件不存在则创建文件，先创建目录
+            if (!file.exists()) {
                 File dir = new File(file.getParent());
                 dir.mkdirs();
                 file.createNewFile();
             }
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(data + "\r\n");// 往已有的文件上添加字符串
+            bw.write(data + "\r\n");
             bw.close();
             fw.close();
             return true;
