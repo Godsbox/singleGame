@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +33,7 @@ import com.lzj.arch.util.ViewUtils;
 import com.lzj.shanyidogleg.AppConstant;
 import com.lzj.shanyidogleg.BaWei;
 import com.lzj.shanyidogleg.R;
+import com.lzj.shanyidogleg.doing.DoingFragment;
 import com.mob4399.adunion.AdUnionVideo;
 import com.mob4399.adunion.listener.OnAuVideoAdListener;
 import com.mobgi.common.utils.FileUtil;
@@ -59,6 +62,8 @@ import static com.lzj.shanyidogleg.AppConstant.GAME_UUID;
 import static com.lzj.shanyidogleg.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
 import static com.lzj.shanyidogleg.AppConstant.OFFLINE_SHOULDINTER_URL;
 import static com.lzj.shanyidogleg.AppConstant.getUserAgent;
+import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
+import static io.reactivex.schedulers.Schedulers.io;
 
 /**
  * 浏览器界面
@@ -109,7 +114,8 @@ public class BrowserFragment
         int layoutId = getArgument(EXTRA_LAYOUT_ID);
         getConfig().setLayoutResource(layoutId);
 
-        Observable.timer(10000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+        Observable.timer(10000, TimeUnit.MILLISECONDS).subscribeOn(io())
+                .observeOn(mainThread()).subscribe(new ObserverAdapter<Long>(){
             @Override
             public void onNext(Long aLong) {
                 if(NetworkManager.isWifi()){
@@ -326,11 +332,13 @@ public class BrowserFragment
     private String AdBlockId = AppConstant.BLOCK_ID;
 
     private void callbackSucceed(){
+        Log.d("wsy","callbackSucceed加载失败！");
         finish = false;
         callback("playadBack","1");
     }
 
     private void callBackAdFailed(){
+        Log.d("wsy","callBackAdFailed加载失败！");
         finish = false;
         callback("playadBack","0");
     }
@@ -340,6 +348,7 @@ public class BrowserFragment
 
             @Override
             public void onVideoAdLoaded() {
+                Log.d("wsy","onVideoAdLoaded 加载完成！ startAds == "+ startAds);
                 finish = true;
                 if(startAds){
                     mobgiVideoAd.show();
@@ -351,12 +360,14 @@ public class BrowserFragment
 
             @Override
             public void onVideoAdShow() {
+                Log.d("wsy","播放！ onVideoAdShow ");
+                dismissDoing();
                 finish = true;
             }
 
             @Override
             public void onVideoAdFailed(String s) {
-                ToastUtils.showShort("很抱歉，广告加载错误，请重试~");
+                showFailed();
                 callBackAdFailed();
 
                 // 有了等待5秒的逻辑  可以忽略这个错误
@@ -390,12 +401,14 @@ public class BrowserFragment
         startAds = true;
         if(mobgiVideoAd == null){
             finish = false;
+            showDoing();
             ToastUtils.showShort("正在加载广告中，请稍后....");
             initAds();
             finishWait();
             return;
         }
         if(!finish){
+            showDoing();
             ToastUtils.showShort("正在加载广告中，请稍后....");
             finishWait();
         }
@@ -403,15 +416,40 @@ public class BrowserFragment
     }
 
     private void finishWait(){
-        Observable.timer(5000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+        Observable.timer(10000, TimeUnit.MILLISECONDS).subscribeOn(io())
+                .observeOn(mainThread()).subscribe(new ObserverAdapter<Long>(){
             @Override
-            public void onNext(Long aLong) {
+            public void onComplete() {
+                dismissDoing();
+                showFailed();
                 if(!finish){
                     startAds = false;
                     callBackAdFailed();
                 }
             }
         });
+    }
+
+    private void showFailed(){
+        Log.d("wsy","showFailed    调用了！！！");
+        ToastUtils.showShort("很抱歉，广告加载错误，请重试~");
+    }
+
+    String TAG = "loading_ad";
+
+    private void showDoing(){
+        dismissDoing();
+        DialogFragment fragment = DoingFragment.newInstance("", false);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.add(fragment, TAG);
+        ft.commitAllowingStateLoss();
+    }
+
+    private void dismissDoing(){
+        DialogFragment fragment = (DialogFragment) getFragmentManager().findFragmentByTag(TAG);
+        if (fragment != null) {
+            fragment.dismissAllowingStateLoss();
+        }
     }
 
 
@@ -444,5 +482,4 @@ public class BrowserFragment
         }
         return false;
     }
-
 }

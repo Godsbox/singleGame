@@ -12,6 +12,7 @@
 
     <string name="offline_error">打开失败 json资源丢失~</string>
     <string name="offline_error_nojson">json资源丢失~</string>
+    <string name="doing_await">请稍候&#8230;</string>
 
     <string name="quit_play_game_confirm_message">退出前记得存档保留记录哦~</string>
     <string name="quit_play_game_confirm_message_gift">喜欢我就送我送礼物吧 ≧ 3≦~</string>
