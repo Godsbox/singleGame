@@ -326,11 +326,13 @@ public class BrowserFragment
     private String AdBlockId = AppConstant.BLOCK_ID;
 
     private void callbackSucceed(){
+        Log.d("wsy","返回成功成功了！");
         finish = false;
         callback("playadBack","1");
     }
 
     private void callBackAdFailed(){
+        Log.d("wsy","返回失败了！");
         finish = false;
         callback("playadBack","0");
     }
@@ -340,7 +342,6 @@ public class BrowserFragment
 
             @Override
             public void onVideoAdLoaded() {
-                Log.d("wsy","=====onVideoAdLoaded========");
                 finish = true;
                 if(startAds){
                     mobgiVideoAd.show();
@@ -353,7 +354,6 @@ public class BrowserFragment
             @Override
             public void onVideoAdShow() {
                 finish = true;
-                Log.d("wsy","=====onVideoAdShow  onVideoAdShow ========");
             }
 
             @Override
@@ -391,7 +391,8 @@ public class BrowserFragment
     @Override
     public void playAdsVideo() {
         Log.d("wsy","调用了！！！");
-        startAds = true;
+        callbackSucceed();
+        /*startAds = true;
         if(mobgiVideoAd == null){
             finish = false;
             ToastUtils.showShort("正在加载广告中，请稍后....");
@@ -404,11 +405,11 @@ public class BrowserFragment
             ToastUtils.showShort("正在加载广告中，请稍后....");
             finishWait();
         }
-        mobgiVideoAd.show();
+        mobgiVideoAd.show();*/
     }
 
     private void finishWait(){
-        Observable.timer(3000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
+        Observable.timer(5000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new ObserverAdapter<Long>(){
             @Override
             public void onNext(Long aLong) {
                 if(!finish){

@@ -67,7 +67,7 @@ public final class AppConstant {
     public static final String GAME_PLAYURL = FILE_DIR_HEAD + "index.html?" +
             "uuid=" + GAME_UUID +
             "&client=android&gid="+ GAME_ID +
-            "&type=0&v=1.0.0&app_version=1.8.0&single=1&offline=1&vertical=" + vertical;
+            "&type=0&v=1.0.0&app_version=1.5.0&single=1&offline=1&vertical=" + vertical;
 
     /**
      * 本地存储路径
