@@ -416,15 +416,15 @@ public class BrowserFragment
     }
 
     private void finishWait(){
-        Observable.timer(10000, TimeUnit.MILLISECONDS).subscribeOn(io())
+        Observable.timer(5000, TimeUnit.MILLISECONDS).subscribeOn(io())
                 .observeOn(mainThread()).subscribe(new ObserverAdapter<Long>(){
             @Override
             public void onComplete() {
                 dismissDoing();
-                showFailed();
                 if(!finish){
                     startAds = false;
                     callBackAdFailed();
+                    showFailed();
                 }
             }
         });
