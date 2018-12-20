@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyidogleg.play;
+package com.lzj.shanyihiman.play;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
@@ -21,9 +21,9 @@ import com.lzj.arch.bus.BusManager;
 import com.lzj.arch.util.DisplayUtils;
 import com.lzj.arch.util.ViewUtils;
 import com.lzj.arch.widget.OnSwipeListener;
-import com.lzj.shanyidogleg.BaWei;
-import com.lzj.shanyidogleg.R;
-import com.lzj.shanyidogleg.browser.BrowserFragment;
+import com.lzj.shanyihiman.BaWei;
+import com.lzj.shanyihiman.R;
+import com.lzj.shanyihiman.browser.BrowserFragment;
 
 import java.util.Random;
 

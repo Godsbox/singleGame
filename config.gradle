@@ -14,8 +14,8 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyidogleg',
-            appName          : 'dogleg',
+            appId            : 'com.lzj.shanyihiman',
+            appName          : 'himan',
             versionName      : '1.0.0',
             prereleaseSuffix : '',
             versionCode      : 1,

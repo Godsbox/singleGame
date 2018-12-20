@@ -1,15 +1,15 @@
 /*
  * Copyright (c) 2017 3000.com All Rights Reserved. 
  */
-package com.lzj.shanyidogleg.doing;
+package com.lzj.shanyihiman.doing;
 
 import android.view.View;
 import android.widget.TextView;
 
 import com.lzj.arch.app.PassiveFragment;
-import com.lzj.shanyidogleg.R;
+import com.lzj.shanyihiman.R;
 
-import static com.lzj.shanyidogleg.BaWei.PKG;
+import static com.lzj.shanyihiman.BaWei.PKG;
 
 
 /**

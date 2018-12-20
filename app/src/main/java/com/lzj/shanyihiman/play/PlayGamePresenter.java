@@ -1,15 +1,15 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyidogleg.play;
+package com.lzj.shanyihiman.play;
 
 import com.lzj.arch.app.PassivePresenter;
 import com.lzj.arch.core.Contract;
 import com.lzj.arch.file.KeyValueCache;
 import com.lzj.arch.file.KeyValueCaches;
 
-import static com.lzj.shanyidogleg.AppConstant.PREFS_APP;
-import static com.lzj.shanyidogleg.AppConstant.PREF_GAME_PLAY_GUIDE;
+import static com.lzj.shanyihiman.AppConstant.PREFS_APP;
+import static com.lzj.shanyihiman.AppConstant.PREF_GAME_PLAY_GUIDE;
 
 
 /**

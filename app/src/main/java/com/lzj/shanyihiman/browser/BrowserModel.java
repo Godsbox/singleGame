@@ -1,4 +1,4 @@
-package com.lzj.shanyidogleg.browser;
+package com.lzj.shanyihiman.browser;
 
 import com.lzj.arch.app.web.WebModel;
 

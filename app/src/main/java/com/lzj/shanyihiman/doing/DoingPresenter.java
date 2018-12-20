@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017 3000.com All Rights Reserved. 
  */
-package com.lzj.shanyidogleg.doing;
+package com.lzj.shanyihiman.doing;
 
 import com.lzj.arch.core.AbstractPresenter;
 import com.lzj.arch.core.Contract;
 
-import static com.lzj.shanyidogleg.doing.DoingFragment.EXTRA_ONCE;
+import static com.lzj.shanyihiman.doing.DoingFragment.EXTRA_ONCE;
 
 /**
  * 正在做表现者。

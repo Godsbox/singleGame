@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyidogleg.browser;
+package com.lzj.shanyihiman.browser;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,10 +30,10 @@ import com.lzj.arch.util.StringUtils;
 import com.lzj.arch.util.TimeUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
-import com.lzj.shanyidogleg.AppConstant;
-import com.lzj.shanyidogleg.BaWei;
-import com.lzj.shanyidogleg.R;
-import com.lzj.shanyidogleg.doing.DoingFragment;
+import com.lzj.shanyihiman.AppConstant;
+import com.lzj.shanyihiman.BaWei;
+import com.lzj.shanyihiman.R;
+import com.lzj.shanyihiman.doing.DoingFragment;
 import com.mob4399.adunion.AdUnionVideo;
 import com.mob4399.adunion.listener.OnAuVideoAdListener;
 import com.mobgi.common.utils.FileUtil;
@@ -52,16 +52,15 @@ import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.wujilin.doorbell.Doorbell;
 
 import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
-import static com.lzj.shanyidogleg.AppConstant.GAME_DIR_PRE;
-import static com.lzj.shanyidogleg.AppConstant.GAME_ID;
-import static com.lzj.shanyidogleg.AppConstant.GAME_UUID;
-import static com.lzj.shanyidogleg.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
-import static com.lzj.shanyidogleg.AppConstant.OFFLINE_SHOULDINTER_URL;
-import static com.lzj.shanyidogleg.AppConstant.getUserAgent;
+import static com.lzj.shanyihiman.AppConstant.GAME_DIR_PRE;
+import static com.lzj.shanyihiman.AppConstant.GAME_ID;
+import static com.lzj.shanyihiman.AppConstant.GAME_UUID;
+import static com.lzj.shanyihiman.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
+import static com.lzj.shanyihiman.AppConstant.OFFLINE_SHOULDINTER_URL;
+import static com.lzj.shanyihiman.AppConstant.getUserAgent;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
 

@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyidogleg.play;
+package com.lzj.shanyihiman.play;
 
 import com.lzj.arch.core.Model;
 
