@@ -331,7 +331,7 @@ public class BrowserFragment
     private String AdBlockId = AppConstant.BLOCK_ID;
 
     private void callbackSucceed(){
-        Log.d("wsy","callbackSucceed加载失败！");
+        Log.d("wsy","callbackSucceed！");
         finish = false;
         callback("playadBack","1");
     }
