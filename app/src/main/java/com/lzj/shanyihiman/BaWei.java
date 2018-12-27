@@ -119,9 +119,7 @@ public class BaWei extends MultiDexApplication {
             }
         }).subscribeOn(Schedulers.single()).subscribe();
 
-        if (!"release".equals(BUILD_TYPE)) {
-            CrashHandler.createCrashHandler();
-        }
+        CrashHandler.createCrashHandler();
     }
 
     /**

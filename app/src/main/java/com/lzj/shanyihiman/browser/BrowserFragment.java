@@ -377,12 +377,14 @@ public class BrowserFragment
 
             @Override
             public void onVideoAdClicked() {
+                Log.d("wsy"," onVideoAdClicked ");
                 mobgiVideoAd = null;
                 callbackSucceed();
             }
 
             @Override
             public void onVideoAdClosed() {
+                Log.d("wsy"," onVideoAdClosed ");
                 mobgiVideoAd = null;
                 callbackSucceed();
             }
