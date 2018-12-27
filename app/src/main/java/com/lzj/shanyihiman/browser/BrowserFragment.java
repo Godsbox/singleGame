@@ -366,6 +366,7 @@ public class BrowserFragment
 
             @Override
             public void onVideoAdFailed(String s) {
+                mobgiVideoAd = null;
                 showFailed();
                 callBackAdFailed();
 
@@ -376,11 +377,13 @@ public class BrowserFragment
 
             @Override
             public void onVideoAdClicked() {
+                mobgiVideoAd = null;
                 callbackSucceed();
             }
 
             @Override
             public void onVideoAdClosed() {
+                mobgiVideoAd = null;
                 callbackSucceed();
             }
         };
