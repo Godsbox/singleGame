@@ -1,15 +1,15 @@
 /*
  * Copyright (c) 2017 3000.com All Rights Reserved. 
  */
-package com.lzj.shanyihiman.doing;
+package com.lzj.shanyiharp_world.doing;
 
 import android.view.View;
 import android.widget.TextView;
 
 import com.lzj.arch.app.PassiveFragment;
-import com.lzj.shanyihiman.R;
+import com.lzj.shanyiharp_world.R;
 
-import static com.lzj.shanyihiman.BaWei.PKG;
+import static com.lzj.shanyiharp_world.BaWei.PKG;
 
 
 /**

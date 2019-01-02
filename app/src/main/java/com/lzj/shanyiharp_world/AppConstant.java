@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyihiman;
+package com.lzj.shanyiharp_world;
 
 import android.os.Build;
 import android.os.Environment;
 
-import static com.lzj.shanyihiman.BuildConfig.APP_VERSION;
+import static com.lzj.shanyiharp_world.BuildConfig.APP_VERSION;
 
 /**
  * 应用全局常量类。

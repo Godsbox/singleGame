@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyihiman.browser;
+package com.lzj.shanyiharp_world.browser;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,10 +30,10 @@ import com.lzj.arch.util.StringUtils;
 import com.lzj.arch.util.TimeUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
-import com.lzj.shanyihiman.AppConstant;
-import com.lzj.shanyihiman.BaWei;
-import com.lzj.shanyihiman.R;
-import com.lzj.shanyihiman.doing.DoingFragment;
+import com.lzj.shanyiharp_world.AppConstant;
+import com.lzj.shanyiharp_world.BaWei;
+import com.lzj.shanyiharp_world.R;
+import com.lzj.shanyiharp_world.doing.DoingFragment;
 import com.mob4399.adunion.AdUnionVideo;
 import com.mob4399.adunion.listener.OnAuVideoAdListener;
 import com.mobgi.common.utils.FileUtil;
@@ -55,12 +55,12 @@ import io.reactivex.Observable;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
-import static com.lzj.shanyihiman.AppConstant.GAME_DIR_PRE;
-import static com.lzj.shanyihiman.AppConstant.GAME_ID;
-import static com.lzj.shanyihiman.AppConstant.GAME_UUID;
-import static com.lzj.shanyihiman.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
-import static com.lzj.shanyihiman.AppConstant.OFFLINE_SHOULDINTER_URL;
-import static com.lzj.shanyihiman.AppConstant.getUserAgent;
+import static com.lzj.shanyiharp_world.AppConstant.GAME_DIR_PRE;
+import static com.lzj.shanyiharp_world.AppConstant.GAME_ID;
+import static com.lzj.shanyiharp_world.AppConstant.GAME_UUID;
+import static com.lzj.shanyiharp_world.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
+import static com.lzj.shanyiharp_world.AppConstant.OFFLINE_SHOULDINTER_URL;
+import static com.lzj.shanyiharp_world.AppConstant.getUserAgent;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
 
