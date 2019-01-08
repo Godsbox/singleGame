@@ -184,6 +184,15 @@ public class BrowserFragment
             return dealWithJson(uuid);
         }
 
+        if(url.endsWith(".gif")){
+            File file = new File(url);
+            if(file != null && file.exists()){
+                if(file.length() > 500 * 1024){
+                    Log.d("wsy", "请注意动态图片过大： "+url);
+                }
+            }
+        }
+
         if(offline && StringUtils.isVolume(url)){
             return dealWithMedia(url);
         }
