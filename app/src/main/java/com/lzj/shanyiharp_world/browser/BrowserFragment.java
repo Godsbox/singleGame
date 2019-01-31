@@ -17,6 +17,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
@@ -24,6 +25,7 @@ import com.lzj.arch.network.NetworkManager;
 import com.lzj.arch.rx.ObserverAdapter;
 import com.lzj.arch.util.BitmapUtils;
 import com.lzj.arch.util.DateUtils;
+import com.lzj.arch.util.DisplayUtils;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
@@ -107,6 +109,8 @@ public class BrowserFragment
      */
     private boolean finish = false;
 
+    private int size;
+
     @Override
     public void onCreate(@Nullable Bundle state) {
         super.onCreate(state);
@@ -122,6 +126,9 @@ public class BrowserFragment
                 }
             }
         });
+
+        size = (int)(DisplayUtils.getDisplayHeight() * 1.8);
+        size = DisplayUtils.getDisplayWidth() - size;
     }
 
     @Override
@@ -300,6 +307,8 @@ public class BrowserFragment
             again = ViewUtils.findView(quitConfirm, R.id.again);
             ImageView view = ViewUtils.findView(quitConfirm, R.id.work_end_bg);
             BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, view);
+            ImageView image = (ImageView) quitConfirm.findViewById(R.id.work_start_bg);
+            BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, image);
             more.setOnClickListener(this);
             again.setOnClickListener(this);
             quitConfirm.setOnClickListener(this);
