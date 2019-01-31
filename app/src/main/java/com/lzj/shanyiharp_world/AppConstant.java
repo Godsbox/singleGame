@@ -19,7 +19,7 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "95959";
+    public static final String GAME_ID = "96985";
 
     /**
      * 广告的 appkey
@@ -34,7 +34,7 @@ public final class AppConstant {
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "AB3FDEF1-01CC-CD06-2A70-D7B4F3BFBE2F";
+    public static final String GAME_UUID = "4AE0581C-2539-1089-845D-CFFE9925FC8D";
 
     /**
      * 作者
