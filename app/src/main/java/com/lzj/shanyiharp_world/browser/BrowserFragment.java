@@ -307,8 +307,6 @@ public class BrowserFragment
             again = ViewUtils.findView(quitConfirm, R.id.again);
             ImageView view = ViewUtils.findView(quitConfirm, R.id.work_end_bg);
             BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, view);
-            ImageView image = (ImageView) quitConfirm.findViewById(R.id.work_start_bg);
-            BitmapUtils.loadLowMemoryBitmap(R.mipmap.work_bg, image);
             more.setOnClickListener(this);
             again.setOnClickListener(this);
             quitConfirm.setOnClickListener(this);
