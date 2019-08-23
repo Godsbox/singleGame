@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017 3000.com All Rights Reserved. 
  */
-package com.lzj.shanyiharp_world.doing;
+package com.lzj.shanyi_princess.doing;
 
 import com.lzj.arch.core.Model;
 

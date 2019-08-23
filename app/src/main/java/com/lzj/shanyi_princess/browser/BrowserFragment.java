@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyiharp_world.browser;
+package com.lzj.shanyi_princess.browser;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,7 +17,6 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
@@ -26,16 +25,17 @@ import com.lzj.arch.rx.ObserverAdapter;
 import com.lzj.arch.util.BitmapUtils;
 import com.lzj.arch.util.DateUtils;
 import com.lzj.arch.util.DisplayUtils;
+import com.lzj.arch.util.FilenameUtils;
 import com.lzj.arch.util.OsUtils;
 import com.lzj.arch.util.ProcessUtils;
 import com.lzj.arch.util.StringUtils;
 import com.lzj.arch.util.TimeUtils;
 import com.lzj.arch.util.ToastUtils;
 import com.lzj.arch.util.ViewUtils;
-import com.lzj.shanyiharp_world.AppConstant;
-import com.lzj.shanyiharp_world.BaWei;
-import com.lzj.shanyiharp_world.R;
-import com.lzj.shanyiharp_world.doing.DoingFragment;
+import com.lzj.shanyi_princess.AppConstant;
+import com.lzj.shanyi_princess.BaWei;
+import com.lzj.shanyi_princess.R;
+import com.lzj.shanyi_princess.doing.DoingFragment;
 import com.mob4399.adunion.AdUnionVideo;
 import com.mob4399.adunion.listener.OnAuVideoAdListener;
 import com.mobgi.common.utils.FileUtil;
@@ -57,12 +57,12 @@ import io.reactivex.Observable;
 
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
-import static com.lzj.shanyiharp_world.AppConstant.GAME_DIR_PRE;
-import static com.lzj.shanyiharp_world.AppConstant.GAME_ID;
-import static com.lzj.shanyiharp_world.AppConstant.GAME_UUID;
-import static com.lzj.shanyiharp_world.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
-import static com.lzj.shanyiharp_world.AppConstant.OFFLINE_SHOULDINTER_URL;
-import static com.lzj.shanyiharp_world.AppConstant.getUserAgent;
+import static com.lzj.shanyi_princess.AppConstant.GAME_DIR_PRE;
+import static com.lzj.shanyi_princess.AppConstant.GAME_ID;
+import static com.lzj.shanyi_princess.AppConstant.GAME_UUID;
+import static com.lzj.shanyi_princess.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
+import static com.lzj.shanyi_princess.AppConstant.OFFLINE_SHOULDINTER_URL;
+import static com.lzj.shanyi_princess.AppConstant.getUserAgent;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
 
@@ -117,7 +117,7 @@ public class BrowserFragment
         int layoutId = getArgument(EXTRA_LAYOUT_ID);
         getConfig().setLayoutResource(layoutId);
 
-        Observable.timer(10000, TimeUnit.MILLISECONDS).subscribeOn(io())
+        /*Observable.timer(10000, TimeUnit.MILLISECONDS).subscribeOn(io())
                 .observeOn(mainThread()).subscribe(new ObserverAdapter<Long>(){
             @Override
             public void onNext(Long aLong) {
@@ -125,7 +125,7 @@ public class BrowserFragment
                     initAds();
                 }
             }
-        });
+        });*/
 
         size = (int)(DisplayUtils.getDisplayHeight() * 1.8);
         size = DisplayUtils.getDisplayWidth() - size;
@@ -191,15 +191,6 @@ public class BrowserFragment
             return dealWithJson(uuid);
         }
 
-        if(url.endsWith(".gif")){
-            File file = new File(url);
-            if(file != null && file.exists()){
-                if(file.length() > 500 * 1024){
-                    Log.d("wsy", "请注意动态图片过大： "+url);
-                }
-            }
-        }
-
         if(offline && StringUtils.isVolume(url)){
             return dealWithMedia(url);
         }
@@ -226,7 +217,7 @@ public class BrowserFragment
                 input = getContext().getAssets().open(uuid+".json");
             } catch (IOException e1) {
                 showJsonError();
-                return null;
+                return new WebResourceResponse();
             }
         }
         return new WebResourceResponse("text/json", "UTF-8", input);
@@ -246,9 +237,9 @@ public class BrowserFragment
             }
             url = url.replace("file:///android_asset/","");
             url = url.replace("/android_asset/","");
-            input = getContext().getAssets().open(url + "shanyi");
+            input = getContext().getAssets().open(FilenameUtils.getNameNoExtension(url));
         } catch (IOException e) {
-            return null;
+            return new WebResourceResponse();
         }
         return new WebResourceResponse(mime, "UTF-8", input);
     }

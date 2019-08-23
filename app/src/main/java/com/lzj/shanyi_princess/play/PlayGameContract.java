@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyiharp_world.play;
+package com.lzj.shanyi_princess.play;
 
 import com.lzj.arch.app.PassiveContract;
 

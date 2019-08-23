@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyiharp_world;
+package com.lzj.shanyi_princess;
 
 import android.os.Build;
 import android.os.Environment;
 
-import static com.lzj.shanyiharp_world.BuildConfig.APP_VERSION;
+import static com.lzj.shanyi_princess.BuildConfig.APP_VERSION;
 
 /**
  * 应用全局常量类。
@@ -19,7 +19,7 @@ public final class AppConstant {
     /**
      * 作品id
      */
-    public static final String GAME_ID = "96985";
+    public static final String GAME_ID = "100816";
 
     /**
      * 广告的 appkey
@@ -34,7 +34,7 @@ public final class AppConstant {
     /**
      * 第一个json
      */
-    public static final String GAME_UUID = "4AE0581C-2539-1089-845D-CFFE9925FC8D";
+    public static final String GAME_UUID = "E0F65B4C-4215-0D6C-AB13-43CF7B237F99";
 
     /**
      * 作者
@@ -67,7 +67,7 @@ public final class AppConstant {
     public static final String GAME_PLAYURL = FILE_DIR_HEAD + "index.html?" +
             "uuid=" + GAME_UUID +
             "&client=android&gid="+ GAME_ID +
-            "&type=0&v=1.0.0&app_version=1.5.0&single=1&offline=1&vertical=" + vertical;
+            "&type=0&v=1.0.0&app_version=1.12.0&single=2&offline=1&vertical=" + vertical;
 
     /**
      * 本地存储路径

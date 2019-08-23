@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyiharp_world.browser;
+package com.lzj.shanyi_princess.browser;
 
 import com.lzj.arch.app.web.WebPresenter;
 import com.lzj.arch.core.Contract;
@@ -27,6 +27,6 @@ public class BrowserPresenter
 
     @Override
     public void playAdVideo() {
-        getView().playAdsVideo();
+        //getView().playAdsVideo();
     }
 }

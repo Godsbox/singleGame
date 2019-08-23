@@ -104,6 +104,33 @@ public final class FilenameUtils {
     }
 
     /**
+     * 获取文件名, 不含文件路径, 不含后缀。
+     *
+     * @param filename 文件名
+     * @return 文件名
+     */
+    public static String getNameNoExtension(String filename){
+        if (filename == null) {
+            return null;
+        }
+        int index = indexOfLastSeparator(filename);
+        return removeFileType(filename.substring(index + 1));
+    }
+
+    /**
+     * 删除后缀
+     * @param filePath
+     * @return
+     */
+    public static String removeFileType(String filePath){
+        int dotPos = filePath.lastIndexOf('.');
+        if (0 <= dotPos) {
+            return filePath.substring(0, dotPos);
+        }
+        return filePath;
+    }
+
+    /**
      * 返回文件扩展名的位置。
      *
      * @param filename 文件名

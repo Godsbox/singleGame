@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2017 3000.com All Rights Reserved. 
  */
-package com.lzj.shanyiharp_world.doing;
+package com.lzj.shanyi_princess.doing;
 
 import com.lzj.arch.core.AbstractPresenter;
 import com.lzj.arch.core.Contract;
 
-import static com.lzj.shanyiharp_world.doing.DoingFragment.EXTRA_ONCE;
+import static com.lzj.shanyi_princess.doing.DoingFragment.EXTRA_ONCE;
 
 /**
  * 正在做表现者。

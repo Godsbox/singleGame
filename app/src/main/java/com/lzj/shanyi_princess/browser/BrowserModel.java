@@ -1,4 +1,4 @@
-package com.lzj.shanyiharp_world.browser;
+package com.lzj.shanyi_princess.browser;
 
 import com.lzj.arch.app.web.WebModel;
 

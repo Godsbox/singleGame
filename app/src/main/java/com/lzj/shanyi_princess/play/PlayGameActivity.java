@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyiharp_world.play;
+package com.lzj.shanyi_princess.play;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
@@ -21,9 +21,9 @@ import com.lzj.arch.bus.BusManager;
 import com.lzj.arch.util.DisplayUtils;
 import com.lzj.arch.util.ViewUtils;
 import com.lzj.arch.widget.OnSwipeListener;
-import com.lzj.shanyiharp_world.BaWei;
-import com.lzj.shanyiharp_world.R;
-import com.lzj.shanyiharp_world.browser.BrowserFragment;
+import com.lzj.shanyi_princess.BaWei;
+import com.lzj.shanyi_princess.R;
+import com.lzj.shanyi_princess.browser.BrowserFragment;
 
 import java.util.Random;
 

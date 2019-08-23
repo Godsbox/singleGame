@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2017-present 3000.com All Rights Reserved.
  */
-package com.lzj.shanyiharp_world.browser;
+package com.lzj.shanyi_princess.browser;
 
 import java.io.File;
 
@@ -9,8 +9,8 @@ import com.lzj.arch.util.ClipboardUtils;
 import com.lzj.arch.util.DeviceUtils;
 import com.lzj.arch.util.FileUtils;
 import com.lzj.arch.app.web.WebInterface;
-import com.lzj.shanyiharp_world.AppConstant;
-import com.lzj.shanyiharp_world.BuildConfig;
+import com.lzj.shanyi_princess.AppConstant;
+import com.lzj.shanyi_princess.BuildConfig;
 
 import android.webkit.JavascriptInterface;
 
@@ -118,7 +118,7 @@ public class BrowserWebInterface extends WebInterface<BrowserContract.Presenter>
      */
     @JavascriptInterface
     public void playAdVideo() {
-        getPresenter().playAdVideo();
+        //getPresenter().playAdVideo();
     }
 
     /**
