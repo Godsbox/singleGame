@@ -4,22 +4,27 @@
 package com.lzj.shanyi_princess.browser;
 
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzj.arch.app.PassiveActivity;
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.core.Contract;
 import com.lzj.shanyi_princess.AppConstant;
 import com.lzj.shanyi_princess.BaWei;
 import com.lzj.shanyi_princess.R;
+import com.tencent.smtt.sdk.CookieManager;
+import com.tencent.smtt.sdk.CookieSyncManager;
+import com.tencent.smtt.sdk.WebStorage;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
+import static com.gyf.barlibrary.BarHide.FLAG_HIDE_NAVIGATION_BAR;
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
-import static com.lzj.arch.util.ViewUtils.inflate;
 
 /**
  * 浏览器屏幕。
@@ -37,6 +42,19 @@ public class BrowserActivity
     protected void onCreate(@Nullable Bundle state) {
         super.onCreate(state);
         BaWei.getInstance().addActivity_(this);
+        WebStorage.getInstance().deleteAllData();
+        CookieSyncManager.createInstance(getApplicationContext());
+        CookieManager cookieManager = CookieManager.getInstance();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            cookieManager.removeSessionCookies(null);
+            cookieManager.removeAllCookie();
+            cookieManager.flush();
+        } else {
+            cookieManager.removeSessionCookies(null);
+            cookieManager.removeAllCookie();
+            CookieSyncManager.getInstance().sync();
+        }
+        ImmersionBar.with(this).hideBar(FLAG_HIDE_NAVIGATION_BAR).init();
     }
 
     @Override

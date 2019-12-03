@@ -135,6 +135,8 @@ public class WebFragment<P extends Presenter>
         });
         webView.setDownloadListener(new MyWebViewDownloadListener());
         webView.clearCache(true);
+        webView.clearHistory();
+        webView.clearFormData();
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         // 允许js弹窗

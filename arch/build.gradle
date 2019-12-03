@@ -35,6 +35,7 @@ dependencies {
     provided libs.eventbus
     compile libs.timber
     compile libs.disklrucache
+    compile libs.immersionbar
     compile(libs.doorbell) {
         exclude group: 'com.android.support'
     }

@@ -52,17 +52,6 @@ android {
 
         }
 
-        // 成员版
-        member {
-            minifyEnabled memberConfig.minifyEnabled
-            zipAlignEnabled memberConfig.minifyEnabled
-            shrinkResources memberConfig.minifyEnabled
-            signingConfig signingConfigs.release
-
-            //关键代码，release， debug为library中已有buildType
-            matchingFallbacks = ['release', 'debug']
-        }
-
         // 开发版
         debug {
             minifyEnabled debugConfig.minifyEnabled

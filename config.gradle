@@ -30,11 +30,6 @@ ext {
             umengEnabled : "false"
     ]
 
-    memberConfig = [
-            minifyEnabled: true,
-            umengEnabled : "true"
-    ]
-
     // 版本
     versions = [
             support   : "25.3.1",
@@ -70,6 +65,7 @@ ext {
             roundedimageview  : "com.makeramen:roundedimageview:2.3.0",
             viewpagerindicator: 'com.github.JakeWharton:ViewPagerIndicator:2.4.1',
             rollviewpager     : "com.jude:rollviewpager:1.4.6",
+            immersionbar      : 'com.gyf.immersionbar:immersionbar:2.3.3',
             stetho            : "com.facebook.stetho:stetho:${versions.stetho}",
             stethoOkHttp3     : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
             nineold           : "com.nineoldandroids:library:2.4.0",

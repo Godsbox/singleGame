@@ -18,6 +18,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzj.arch.app.web.WebConstant;
 import com.lzj.arch.app.web.WebFragment;
 import com.lzj.arch.network.NetworkManager;
@@ -55,6 +56,7 @@ import com.wujilin.doorbell.Doorbell;
 
 import io.reactivex.Observable;
 
+import static com.gyf.barlibrary.BarHide.FLAG_HIDE_NAVIGATION_BAR;
 import static com.lzj.arch.app.web.WebConstant.EXTRA_LAYOUT_ID;
 import static com.lzj.arch.util.ViewUtils.inflate;
 import static com.lzj.shanyi_princess.AppConstant.GAME_DIR_PRE;
@@ -63,6 +65,7 @@ import static com.lzj.shanyi_princess.AppConstant.GAME_UUID;
 import static com.lzj.shanyi_princess.AppConstant.OFFLINE_SHOULDINTER_CHAPTER_URL;
 import static com.lzj.shanyi_princess.AppConstant.OFFLINE_SHOULDINTER_URL;
 import static com.lzj.shanyi_princess.AppConstant.getUserAgent;
+import static com.tencent.smtt.export.external.interfaces.IX5WebSettings.LOAD_NO_CACHE;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
 
@@ -141,14 +144,10 @@ public class BrowserFragment
     @Override
     protected void onInitWebSettings(WebSettings settings) {
         super.onInitWebSettings(settings);
-        settings.setDomStorageEnabled(true);
+        settings.setDomStorageEnabled(false);
         settings.setAllowFileAccess(true);
-        File cacheDir = new File(getActivity().getCacheDir().getAbsolutePath() + "/webview");
-        if (!cacheDir.exists()) {
-            cacheDir.mkdir();
-        }
-        settings.setAppCacheEnabled(true);
-        settings.setAppCachePath(cacheDir.getAbsolutePath());
+        settings.setAppCacheEnabled(false);
+        settings.setCacheMode(LOAD_NO_CACHE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             settings.setAllowFileAccessFromFileURLs(true);
             settings.setAllowUniversalAccessFromFileURLs(true);
@@ -165,6 +164,9 @@ public class BrowserFragment
     public void onResume() {
         callback("resumeAudio");
         super.onResume();
+        if(getDialog() != null){
+            ImmersionBar.with(this).hideBar(FLAG_HIDE_NAVIGATION_BAR).init();
+        }
     }
 
     @Override
