@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/primary</item>
+        <item name="android:windowFullscreen">true</item>
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:windowBackground">@color/window</item>
         <item name="android:alertDialogStyle">@style/AlertDialog</item>

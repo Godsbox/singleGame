@@ -14,11 +14,11 @@ ext {
 
     // 安装包
     apk = [
-            appId            : 'com.lzj.shanyi_princess',
-            appName          : 'shanyi_princess',
-            versionName      : '1.0.0',
+            appId            : 'com.lzj.princess',
+            appName          : 'ancient_princess',
+            versionName      : '2.0.0',
             prereleaseSuffix : '',
-            versionCode      : 1,
+            versionCode      : 5,
             minSdkVersion    : 15,
             compileSdkVersion: 25,
             targetSdkVersion : 22,

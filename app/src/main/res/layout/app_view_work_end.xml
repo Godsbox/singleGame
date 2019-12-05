@@ -57,7 +57,7 @@
 
     <LinearLayout
         android:gravity="center"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,15 +69,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/app_selector_ellipse_round_again_open_work"/>
 
-        <View
-            android:layout_width="50dp"
-            android:layout_height="1dp"/>
-
-        <ImageView
-            android:id="@+id/more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/app_selector_ellipse_round_more_work"/>
 
     </LinearLayout>
 
